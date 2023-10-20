@@ -1,0 +1,30 @@
+#+TITLE: Minimal Helm Charts
+#+DATE:  2023-10-18
+
+
+Minimal charts built for use with my deployments based on Flux. 
+
+*** Charts
+
+**** [[charts/element-web][Element Web]]
+
+A simplified version of ananace chart, implementing secrets for PostgreSQL as well.
+
+**** [[charts/matrix-media-repo][Matrix Media Repo]]
+**** [[charts/matrix-synapse][Matrix Synapse]]
+**** [[charts/synatainer][Synatainer]]
+**** [[charts/sliding-sync-proxy][Matrix Sliding Sync / Sync v3 proxy]]
+
+*** Usage
+
+#+BEGIN_SRC
+$ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
+#+END_SRC
+
+Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
+
+** License
+
+Repo was inspired by [[https://gitlab.com/ananace/charts][ananace]] (some parts imported and rewritten).
+
+The general license of this repo is DWTFYWTPB, but it is Apache v2 in some of the repos which were built on other's work. See the individual chart for details.
