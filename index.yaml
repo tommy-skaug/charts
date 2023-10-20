@@ -1,0 +1,97 @@
+apiVersion: v1
+entries:
+  matrix-media-repo:
+  - apiVersion: v2
+    appVersion: 1.3.2
+    created: "2023-10-20T12:32:05.063993199Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.4
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ^17.3.17
+    description: 'Matrix media repository with multi-domain in mind.  NB; Before updating
+      the Chart to 3.0.0, make sure to read https://docs.t2bot.io/matrix-media-repo/upgrading/130.html '
+    digest: 0eb5ee2815a0fc7ba17e3672c2a43773efffff9bfc5ed9f91e3309d773a1960a
+    maintainers:
+    - email: ace@haxalot.com
+      name: Alexander Olofsson
+    name: matrix-media-repo
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/matrix-media-repo-3.0.1/matrix-media-repo-3.0.1.tgz
+    version: 3.0.1
+  matrix-synapse:
+  - apiVersion: v2
+    appVersion: 1.94.0
+    created: "2023-10-20T12:32:05.371410403Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.4
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ^17.3.17
+    description: Matrix reference homeserver
+    digest: 445f520768565f2142669cf69ca63b65c0666c05e0bdb0cf5f0ccc9cc65a4f10
+    icon: https://matrix.org/images/matrix-logo.svg
+    maintainers:
+    - email: ace@haxalot.com
+      name: Alexander Olofsson
+    name: matrix-synapse
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/matrix-synapse-3.7.8/matrix-synapse-3.7.8.tgz
+    version: 3.7.8
+  netbox:
+  - apiVersion: v2
+    appVersion: 3.6.3
+    created: "2023-10-20T12:32:05.601732978Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.4
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ^17.3.17
+    description: 'An IP address management (IPAM) and data center infrastructure management
+      (DCIM) tool.  Important; With chart version 4.0.0 there are major upgrades to
+      the packaged Redis and Postgres, as well as a major version bump of Netbox that
+      introduces housekeeping. Take care when upgrading. '
+    digest: 85b41f0f5a4813adb3377d5a3396866b04c4ef750abf2d5e4c92960ca37cb72b
+    icon: https://raw.githubusercontent.com/digitalocean/netbox/develop/netbox/project-static/img/netbox.ico
+    maintainers:
+    - email: ace@haxalot.com
+      name: Alexander Olofsson
+    name: netbox
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/netbox-5.5.3/netbox-5.5.3.tgz
+    version: 5.5.3
+  sliding-sync-proxy:
+  - apiVersion: v2
+    appVersion: 0.99.11
+    created: "2023-10-20T12:32:05.838413113Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.2.2
+    description: An implementation of MSC3575
+    digest: 4c774f731b9b5a2d353ee9b4ffa3a36c0fbc6f3b0e0e77d1a0e783d32a3eedf4
+    maintainers:
+    - email: ace@haxalot.com
+      name: Alexander Olofsson
+    name: sliding-sync-proxy
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
+    version: 0.2.5
+generated: "2023-10-20T12:32:05.838424513Z"
