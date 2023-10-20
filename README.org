@@ -1,79 +1,30 @@
 #+TITLE: Helm Charts
 #+DATE:  2023-10-18
 
-* Kubernetes applications packaged into helm charts
+** Kubernetes applications packaged into helm charts
 
-Started on the repo of [ananace](https://gitlab.com/ananace/charts) and extended with various other charts I needed to adapt for my cluster. Charts are minimal and are stripped to only accept Secrets. 
+Minimal charts built for use with Flux. 
 
-*** [[charts/element-web][Element Web]]
-*** [[charts/matrix-media-repo][Matrix Media Repo]]
-*** [[charts/matrix-synapse][Matrix Synapse]]
-*** [[charts/synatainer][Synatainer]]
-*** [[charts/sliding-sync-proxy][Matrix Sliding Sync / Sync v3 proxy]]
+Repo was inspired (and some parts imported) from [[https://gitlab.com/ananace/charts][ananace]].
 
-** Usage
+*** Charts
+
+**** [[charts/element-web][Element Web]]
+
+A simplified version of ananace chart, implementing secrets for PostgreSQL as well.
+
+**** [[charts/matrix-media-repo][Matrix Media Repo]]
+**** [[charts/matrix-synapse][Matrix Synapse]]
+**** [[charts/synatainer][Synatainer]]
+**** [[charts/sliding-sync-proxy][Matrix Sliding Sync / Sync v3 proxy]]
+
+*** Usage
 
 #+BEGIN_SRC
 $ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
 #+END_SRC
 
-*** Ingress
-
-The charts maintains the internal networking and you wire the connection to the outside world. I use two ingress classes: Tailscale and nginx, and you can wire a service by adding to kustomization and [[https://fluxcd.io/][flux]] e.g. like the following.
-
-To expose publicly via nginx:
-
-#+BEGIN_SRC yaml
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: matrix-synapse-ingress
-  namespace: messaging
-  annotations:
-    external-dns.alpha.kubernetes.io/target: ingress.${PUBLIC_DOMAIN}
-spec:
-  ingressClassName: nginx
-  rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: matrix-synapse
-            port:
-              number: 8008
-  tls:
-  - hosts:
-    - matrix
-#+END_SRC
-
-To use the [[https://tailscale.com/kb/1236/kubernetes-operator/][Tailscale operator]]:
-
-#+BEGIN_SRC yaml
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: hajimari-ingress
-  namespace: home
-spec:
-  ingressClassName: tailscale
-  rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: hajimari
-            port:
-              number: 3000
-  tls:
-  - hosts:
-    - apps
-#+END_SRC
+Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
 ** License
 

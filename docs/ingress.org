@@ -1,0 +1,62 @@
+#+TITLE: Ingress
+#+DATE:  2023-10-20
+
+The charts maintains the internal networking and you wire the connection to the outside world. I use two ingress classes: Tailscale and nginx, and you can wire a service by adding to kustomization and [[https://fluxcd.io/][flux]] e.g. like the following.
+
+** Nginx
+
+To expose publicly via nginx:
+
+#+BEGIN_SRC yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: matrix-synapse-ingress
+  namespace: messaging
+  annotations:
+    external-dns.alpha.kubernetes.io/target: ingress.${PUBLIC_DOMAIN}
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: matrix-synapse
+            port:
+              number: 8008
+  tls:
+  - hosts:
+    - matrix
+#+END_SRC
+
+** Tailscale
+
+To use the [[https://tailscale.com/kb/1236/kubernetes-operator/][Tailscale operator]]:
+
+#+BEGIN_SRC yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hajimari-ingress
+  namespace: home
+spec:
+  ingressClassName: tailscale
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hajimari
+            port:
+              number: 3000
+  tls:
+  - hosts:
+    - apps
+#+END_SRC
