@@ -1,0 +1,80 @@
+#+TITLE: Helm Charts
+#+DATE:  2023-10-18
+
+* Kubernetes applications packaged into helm charts
+
+Started on the repo of [ananace](https://gitlab.com/ananace/charts) and extended with various other charts I needed to adapt for my cluster. Charts are minimal and are stripped to only accept Secrets. 
+
+*** [Element Web](charts/element-web)
+*** [Matrix Media Repo](charts/matrix-media-repo)
+*** [Matrix Synapse](charts/matrix-synapse)
+*** [Synatainer](charts/synatainer)
+*** [Matrix Sliding Sync / Sync v3 proxy](charts/sliding-sync-proxy)
+
+** Usage
+
+#+BEGIN_SRC
+$ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
+#+END_SRC
+
+*** Ingress
+
+The charts maintains the internal networking and you wire the connection to the outside world. I use two ingress classes: Tailscale and nginx, and you can wire a service by adding to kustomization and [[https://fluxcd.io/][flux]] e.g. like the following.
+
+For public exposure via nginx:
+
+#+BEGIN_SRC yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: matrix-synapse-ingress
+  namespace: messaging
+  annotations:
+    external-dns.alpha.kubernetes.io/target: ingress.${PUBLIC_DOMAIN}
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: matrix-synapse
+            port:
+              number: 8008
+  tls:
+  - hosts:
+    - matrix
+#+END_SRC
+
+By using the [[https://tailscale.com/kb/1236/kubernetes-operator/][Tailscale operator]]:
+
+#+BEGIN_SRC
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hajimari-ingress
+  namespace: home
+spec:
+  ingressClassName: tailscale
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hajimari
+            port:
+              number: 3000
+  tls:
+  - hosts:
+    - apps
+#+END_SRC
+
+** License
+
+The general license of this cluster is DWTFYWTPB, but it is Apache v2 in some of the repos which were built on other's work. See the individual chart for details.
