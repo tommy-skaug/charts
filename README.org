@@ -1,11 +1,8 @@
-#+TITLE: Helm Charts
+#+TITLE: Minimal Helm Charts
 #+DATE:  2023-10-18
 
-** Kubernetes applications packaged into helm charts
 
-Minimal charts built for use with Flux. 
-
-Repo was inspired (and some parts imported) from [[https://gitlab.com/ananace/charts][ananace]].
+Minimal charts built for use with my deployments based on Flux. 
 
 *** Charts
 
@@ -27,5 +24,7 @@ $ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
 Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
 ** License
+
+Repo was inspired by [[https://gitlab.com/ananace/charts][ananace]] (some parts imported and rewritten).
 
 The general license of this repo is DWTFYWTPB, but it is Apache v2 in some of the repos which were built on other's work. See the individual chart for details.
