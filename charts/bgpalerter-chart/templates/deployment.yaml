@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-bgpalerter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-bgpalerter
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-bgpalerter
+    spec:
+      containers:
+        - name: bgpalerter
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          command: {{ .Values.command }}
+          ports:
+            - containerPort: 8011
+          volumeMounts:
+            - name: volume
+              mountPath: /opt/bgpalerter/volume
+      volumes:
+        - name: volume
+          hostPath:
+            path: /path/to/host/volume

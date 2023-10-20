@@ -1,0 +1,11 @@
+
+image:
+  repository: nttgin/bgpalerter
+  tag: latest
+
+command:
+  - run
+  - serve
+  - --
+  - --d
+  - /opt/bgpalerter/volume/
