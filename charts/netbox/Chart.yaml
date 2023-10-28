@@ -11,5 +11,6 @@ appVersion: 3.6.3
 
 type: application
 version: 5.5.3
+maintainers:
   - name: Tommy Skaug
     email: tommy@skaug.me
