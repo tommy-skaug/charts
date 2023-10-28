@@ -1,0 +1,12 @@
+---
+apiVersion: v2
+name: attic-repo
+description: A Nix binary caching server
+appVersion: b43d12
+
+type: application
+version: 0.5
+maintainers:
+  - name: Tommy Skaug
+    email: tommy@skaug.me
+

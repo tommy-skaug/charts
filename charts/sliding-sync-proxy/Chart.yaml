@@ -7,11 +7,5 @@ appVersion: "0.99.11"
 type: application
 version: 0.2.5
 maintainers:
-  - name: Alexander Olofsson
-    email: ace@haxalot.com
-
-dependencies:
-  - name: postgresql
-    version: ^12.2.2
-    repository: https://charts.bitnami.com/bitnami
-    condition: postgresql.enabled
+  - name: Tommy Skaug
+    email: tommy@skaug.me

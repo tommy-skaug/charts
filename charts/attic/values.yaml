@@ -7,8 +7,9 @@ replicaCount: 1
 ##
 image:
   repository: turt2live/matrix-media-repo
+  repository: zhaofengli/attic
   pullPolicy: IfNotPresent
-  # tag: ""
+  tag: b43d12082e34bceb26038bdad0438fd68804cfcd
 
 imagePullSecrets: []
 # nameOverride: ""
@@ -20,7 +21,7 @@ imagePullSecrets: []
 config:
   datastores:
     - type: file
-      id: "examplefile"
+      id: "artefacts"
       forKinds: ["thumbnails", "remote_media", "local_media", "archives"]
       opts:
         path: /media
@@ -36,16 +37,6 @@ config:
 #       ssl: true
 #       bucketName: "your-media-bucket"
 #       region: "sfo2"
-#
-# admins:
-#   - "@user:example.org"
-#
-# featureSupport:
-#   MSC2448:
-#     enabled: true
-# sentry:
-#   enabled: true
-#   dsn: "https://examplekey@ingest.sentry.io/0"
 
 ## For setting extra parameters on the repo block, separated to avoid breaking
 ## the defaults when merging multiple configurations.
@@ -80,64 +71,6 @@ persistence:
   accessMode: ReadWriteOnce
   size: 16Gi
 
-
-## This configuration is for setting up the internally provided Postgres server,
-## if you instead want to use an existing server, then you may want to set
-## enabled to false and configure the externalPostgresql block.
-##
-postgresql:
-  enabled: true
-
-  auth:
-    username: matrix_media_repo
-    database: matrix_media_repo
-
-  persistence:
-    size: 16G
-
-## An externally configured Postgres server.
-##
-externalPostgresql:
-  # host: postgres
-  port: 5432
-  username: matrix_media_repo
-  # password:
-  database: matrix_media_repo
-  # sslMode: require
-
-redis:
-  enabled: false
-
-  auth:
-    enabled: true
-    # XXX Change me!
-    password: media-repo
-
-  architecture: standalone
-  master:
-    persistence:
-      ## Note that Synapse only uses redis as a synchronization utility, so no
-      ## data will ever need to be persisted.
-      ##
-      enabled: false
-    service:
-      port: 6379
-    statefulset:
-      updateStrategy: RollingUpdate
-
-## An externally configured Redis server to use for workers/sharding.
-##
-externalRedis:
-  # host: redis
-  port: 6379
-  # password: media-repo
-  # database: 0
-
-  ## The name of an existing secret with redis credentials
-  #existingSecret: redis-secrets
-
-  ## Password key to be retrieved from existing secret
-  #existingSecretPasswordKey: redis-password
 
 ## Configures an application-specific service account.
 ##
@@ -176,27 +109,6 @@ service:
   port: 80
   annotations: {}
 
-## Ingress configuration.
-##
-ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths: []
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-  ## Set the name of the IngressClass cluster resource (optional)
-  ## https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/#IngressSpec
-  # className: can-be-anything
-
-## Resource configuration for the application.
-##
 resources: {}
   # limits:
   #   cpu: 250m
@@ -204,16 +116,6 @@ resources: {}
   # requests:
   #   cpu: 250m
   #   memory: 512Mi
-
-## Configure auto-scaling for the application.
-## NB; Make sure to read all relevant documentation before playing with this.
-##
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 4
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 ## Configure a PodMonitor definition for the application.
 ## Requires the Prometheus Operator
@@ -224,22 +126,8 @@ podmonitor:
   ## Otherwise uses the default setting set in prometheus
   # interval: 30s
 
-## Node selectors to use when deploying the application.
-##
 nodeSelector: {}
-
-## Tolerations to apply to the application.
-##
 tolerations: []
-
-## Affinities to set on the application.
-##
 affinity: {}
-
-## Deployment annotations
-##
 annotations: {}
-
-## Deployment labels
-##
 labels: {}
