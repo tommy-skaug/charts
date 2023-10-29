@@ -94,7 +94,7 @@ spec:
               value: {{ . | quote }}
             {{- end }}
             - name: "CONDUIT_WELL_KNOWN_CLIENT"
-              value: false
+              value: ""
           volumeMounts:
             - name: "data"
               mountPath: "/var/local/matrix-conduit"
