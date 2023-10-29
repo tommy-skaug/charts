@@ -33,10 +33,9 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "conduit.serviceAccountName" . }}
       securityContext:
-        {{- if .Values.persistence.enabled }}
+        # the conduit group is 1000 in the image
+        # set fsGroup to allow write to PVC
         fsGroup: 1000
-        {{- end }}
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
