@@ -1,8 +1,6 @@
 apiVersion: v2
 name: conduit
 description: Conduit is a simple, fast and reliable chat server powered by Matrix.
-
 type: application
-
-version: 0.2.2
+version: 0.2.3
 appVersion: "0.6.0"
