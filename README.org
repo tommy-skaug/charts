@@ -2,23 +2,22 @@
 #+DATE:  2023-10-18
 
 
-Minimal charts built for use with my deployments based on Flux. 
+Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. 
+
+*** Chart Implementation Guidelines
+
+TODO
 
 *** Charts
 
-**** [[charts/element-web][Element Web]]
+**** [[charts/conduit][Conduit]]
 
-A simplified version of ananace chart, implementing secrets for PostgreSQL as well.
+An efficient and self-contained Matrix server using an embedded RocksDB database.
 
-**** [[charts/matrix-synapse][Matrix Synapse]]
-**** [[charts/synatainer][Synatainer]]
-**** [[charts/sliding-sync-proxy][Matrix Sliding Sync / Sync v3 proxy]]
 **** [[][Attic]]
 
-[[https://github.com/zhaofengli/attic][Attic]] (introduction post [[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][here]]) is a Nix Binary Cache server that
-reduces the time to compile and distribute builds.
+[[https://github.com/zhaofengli/attic][Attic]] (introduction post [[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][here]]) is a Nix Binary Cache server that reduces the time to compile and distribute builds.
 
-docker pull ghcr.io/zhaofengli/attic:b43d12082e34bceb26038bdad0438fd68804cfcd
 
 *** Usage
 
