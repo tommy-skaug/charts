@@ -62,7 +62,7 @@ spec:
             - name: "CONDUIT_SERVER_NAME"
               value: {{ .Values.conduit.server_name | quote }}
             - name: "CONDUIT_DATABASE_PATH"
-              value: "/var/local/matrix-conduit"
+              value: "/var/lib/conduit"
             - name: "CONDUIT_DATABASE_BACKEND"
               value: "rocksdb"
             - name: "CONDUIT_ALLOW_CHECK_FOR_UPDATE"
@@ -97,7 +97,8 @@ spec:
               value: ""
           volumeMounts:
             - name: "data"
-              mountPath: "/var/local/matrix-conduit"
+              mountPath: "/var/lib/conduit"
+              readOnly: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -114,7 +115,7 @@ spec:
         - name: "data"
           {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "conduit.fullname" . }}{{- end }}
+            claimName: {{ template "conduit.fullname" . }}
           {{- else }}
           emptyDir: {}
           {{- end }}
