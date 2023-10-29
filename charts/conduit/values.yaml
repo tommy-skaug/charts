@@ -38,40 +38,6 @@ conduit:
   # log: "warn,rocket=off,_=off,sled=off"
   log:
   registrationToken:
-  wellKnownClient: "your.server.name"
-
-wellknown:
-  enabled: true
-  image:
-    repository: nginx
-    pullPolicy: IfNotPresent
-    tag: "1.25"
-
-  replicaCount: 1
-  podLabels: {}
-  podAnnotations: []
-  podSecurityContext: {}
-  securityContext: {}
-  containerPort: 80
-  env: []
-  resources: {}
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
-
-  service:
-    type: ClusterIP
-    port: 8080
-    annotations: {}
-
-  # TO EDIT:
-  server:
-    "m.server": "your.server.name:443"
-  client:  
-    "m.homeserver":
-      "base_url": "https://your.server.name/" 
-    "org.matrix.msc3575.proxy":
-      "url": "https://your.server.name/" 
 
 podLabels: {}
 podAnnotations: {}
@@ -152,7 +118,5 @@ persistence:
   ## If defined, PVC must be created manually before volume will be bound
   # existingClaim:
 
-  ## Do not create an PVC, direct use hostPath in Pod
-  # hostPath: 
   accessMode: ReadWriteOnce
   size: 1Gi
