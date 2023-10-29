@@ -33,6 +33,9 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "conduit.serviceAccountName" . }}
       securityContext:
+        {{- if .Values.persistence.enabled }}
+        fsGroup: 1000
+        {{- end }}
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
@@ -117,7 +120,4 @@ spec:
           persistentVolumeClaim:
             claimName: {{ template "conduit.fullname" . }}
         {{- end }}
-      {{- if .Values.persistence.enabled }}
-      securityContext:
-        fsGroup: 1000
-      {{- end }}
+
