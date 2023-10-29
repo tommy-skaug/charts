@@ -3,6 +3,16 @@ entries:
   conduit:
   - apiVersion: v2
     appVersion: 0.6.0
+    created: "2023-10-29T12:56:04.14885221Z"
+    description: Conduit is a simple, fast and reliable chat server powered by Matrix.
+    digest: ea180f8982c744e5d66d73fbb88212b91bd4c9ef3c8b6e429bb39905fe935e3b
+    name: conduit
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/conduit-0.2.5/conduit-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: 0.6.0
     created: "2023-10-29T12:21:40.256775138Z"
     description: Conduit is a simple, fast and reliable chat server powered by Matrix.
     digest: b5fa599aca71e6aa6a4cd08d4c97a4d39e290b93a35456a3fdd1bb936b38ef95
@@ -135,4 +145,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-10-29T12:21:40.256788038Z"
+generated: "2023-10-29T12:56:04.148872311Z"
