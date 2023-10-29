@@ -1,0 +1,126 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "conduit.fullname" . }}
+  labels:
+    {{- include "conduit.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "conduit.selectorLabels" . | nindent 6 }}
+      type: conduit
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "conduit.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        type: conduit
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "conduit.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: "CONDUIT_PORT"
+              value: {{ .Values.service.port | quote }}
+            - name: "CONDUIT_ADDRESS"
+              value: "0.0.0.0"
+            - name: "CONDUIT_SERVER_NAME"
+              value: {{ .Values.conduit.server_name | quote }}
+            - name: "CONDUIT_DATABASE_PATH"
+              value: "/var/lib/matrix-conduit"
+            - name: "CONDUIT_DATABASE_BACKEND"
+              value: "rocksdb"
+            - name: "CONDUIT_ALLOW_CHECK_FOR_UPDATE"
+              value: "false"
+            - name: "CONDUIT_ALLOW_REGISTRATION"
+              value: {{ .Values.conduit.allowRegistration | quote }}
+            - name: "CONDUIT_ALLOW_ENCRYPTION"
+              value: {{ .Values.conduit.allowEncryption | quote }}
+            - name: "CONDUIT_ALLOW_FEDERATION"
+              value: {{ .Values.conduit.allowFederation | quote }}
+            - name: "CONDUIT_ALLOW_ROOM_CREATION"
+              value: {{ .Values.conduit.allowRoomCreation | quote }}
+            - name: "CONDUIT_ALLOW_UNSTABLE_ROOM_VERSIONS"
+              value: {{ .Values.conduit.allowUnstableRoomVersions | quote }}
+            - name: "CONDUIT_TRUSTED_SERVERS"
+              value: {{ toJson .Values.conduit.trustedServers | quote }}
+            - name: "CONDUIT_MAX_REQUEST_SIZE"
+              value: {{ .Values.conduit.maxRequestSize | quote }}
+            {{- with .Values.conduit.maxConcurrentRequests }}
+            - name: "CONDUIT_MAX_CONCURRENT_REQUESTS"
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.conduit.log }}
+            - name: "CONDUIT_LOG"
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.conduit.registrationToken }}
+            - name: "CONDUIT_REGISTRATION_TOKEN"
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.conduit.wellKnownClient }}
+            - name: "CONDUIT_WELL_KNOWN_CLIENT"
+              value: {{ . | quote }}
+            {{- end }}
+          volumeMounts:
+            - name: "data"
+              mountPath: "/var/lib/matrix-conduit"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: "data"
+          {{- if .Values.persistence.hostPath }}
+          hostPath:
+            type: Directory
+            path: {{ .Values.persistence.hostPath | quote }}
+          {{- else if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "conduit.fullname" . }}{{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}

@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "sliding-sync-proxy.name" -}}
+{{- define "conduit.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "sliding-sync-proxy.fullname" -}}
+{{- define "conduit.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "sliding-sync-proxy.chart" -}}
+{{- define "conduit.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "sliding-sync-proxy.labels" -}}
-helm.sh/chart: {{ include "sliding-sync-proxy.chart" . }}
-{{ include "sliding-sync-proxy.selectorLabels" . }}
+{{- define "conduit.labels" -}}
+helm.sh/chart: {{ include "conduit.chart" . }}
+{{ include "conduit.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,11 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "sliding-sync-proxy.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "sliding-sync-proxy.name" . }}
+{{- define "conduit.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "conduit.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-{{- define "sliding-sync-proxy.postgresql.fullname" -}}
-{{- printf "%s-%s" .Release.Name "postgresql" | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "conduit.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "conduit.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
