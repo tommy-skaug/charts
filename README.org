@@ -1,4 +1,4 @@
-#+TITLE: Minimal Helm Charts
+#+TITLE: Minimal and Opinionated Helm Charts
 #+DATE:  2023-10-18
 
 
@@ -6,7 +6,13 @@ Backend-focused and UX optimized minmal charts built for use with deployments ba
 
 *** Chart Implementation Guidelines
 
-TODO
+**** TODO Example chart definition
+
+#+BEGIN_SRC
+$ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
+#+END_SRC
+
+Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
 *** Charts
 
@@ -21,14 +27,19 @@ An efficient and self-contained Matrix server using an embedded RocksDB database
 
 *** Usage
 
-#+BEGIN_SRC
-$ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
-#+END_SRC
 
-Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
 ** License
 
 Repo was inspired by [[https://gitlab.com/ananace/charts][ananace]] (some parts imported and rewritten).
 
 The general license of this repo is DWTFYWTPB, but it is Apache v2 in some of the repos which were built on other's work. See the individual chart for details.
+
+
+
+
+helm install dispatch ./dispatch -f values-local.yaml
+
+kubectl describe pod 
+
+helm delete dispatch
