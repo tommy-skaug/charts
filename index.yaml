@@ -81,6 +81,15 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/conduit-0.2.1/conduit-0.2.1.tgz
     version: 0.2.1
+  dispatch:
+  - apiVersion: v2
+    created: "2023-12-15T17:54:39.123787956Z"
+    description: Netflix Dispatch incident management system
+    digest: bbb08ff1610ac68886c7fc1ccc714f7a3aa9f13fddf34a190f8a01dd2f6120f1
+    name: dispatch
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.1.0/dispatch-0.1.0.tgz
+    version: 0.1.0
   matrix-media-repo:
   - apiVersion: v2
     appVersion: 1.3.2
@@ -175,4 +184,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-10-29T14:41:41.22616811Z"
+generated: "2023-12-15T17:54:39.123985759Z"
