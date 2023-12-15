@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dispatch.fullname" . }}-scheduler
+  labels:
+    {{- include "dispatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "dispatch.fullname" . }}-scheduler
+  template:
+    metadata:
+      labels:
+        app: {{ include "dispatch.fullname" . }}-scheduler
+    spec:
+      containers:
+        - name: scheduler
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: {{ .Values.scheduler.command }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "dispatch.fullname" . }}-config
+            - secretRef:
+                name: {{ .Values.postgres.secretRef.name }}

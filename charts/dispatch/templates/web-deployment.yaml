@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dispatch.fullname" . }}-web
+  labels:
+    {{- include "dispatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "dispatch.fullname" . }}-web
+  template:
+    metadata:
+      labels:
+        app: {{ include "dispatch.fullname" . }}-web
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: {{ .Values.web.command }}
+          ports:
+            - containerPort: {{ .Values.web.container.port }}
+          service:
+            type: ClusterIP
+            port: 80
+            targetPort: 8000
+          envFrom:
+            - configMapRef:
+                name: {{ include "dispatch.fullname" . }}-config
+            - secretRef:
+                name: {{ .Values.postgres.secretRef.name }}

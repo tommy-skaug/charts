@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dispatch.fullname" . }}-core
+  labels:
+    {{- include "dispatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "dispatch.fullname" . }}-core
+  template:
+    metadata:
+      labels:
+        app: {{ include "dispatch.fullname" . }}-core
+    spec:
+      initContainers:
+        - name: db-init
+          image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Values.postgres.secretRef.name }}
+      containers:
+        - name: core
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: {{ .Values.core.container.command }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "dispatch.fullname" . }}-config
+            - secretRef:
+                name: {{ .Values.postgres.secretRef.name }}
