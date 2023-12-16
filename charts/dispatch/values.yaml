@@ -1,4 +1,4 @@
-envFromSecret: *secret dispatch-secret
+envFromSecret: &secret dispatch-secret
 
 image:
   repository: ghcr.io/tommy-skaug/dispatch
@@ -12,7 +12,7 @@ initContainers:
       tag: "16"
     envFrom:
       - secretRef:
-          name: &secret
+          name: *secret
 
 url: http://localhost:80
 
@@ -33,4 +33,4 @@ postgres:
   database_name: "dispatch"
   port:          "5432"
   secretRef:
-    name: &secret
+    name: *secret
