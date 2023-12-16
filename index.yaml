@@ -3,6 +3,16 @@ entries:
   conduit:
   - apiVersion: v2
     appVersion: 0.6.0
+    created: "2023-12-16T12:44:10.201294244Z"
+    description: Conduit is a simple, fast and reliable chat server powered by Matrix.
+    digest: 1e20c44ebe08c23339ea81a034dfa951e09a73ae4317f3aae0def98e5f31154e
+    name: conduit
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/conduit-0.2.9/conduit-0.2.9.tgz
+    version: 0.2.9
+  - apiVersion: v2
+    appVersion: 0.6.0
     created: "2023-10-29T14:41:41.225959308Z"
     description: Conduit is a simple, fast and reliable chat server powered by Matrix.
     digest: cf2774d1e09da82a5b342ee83b3859f919f34970009851e3f75caffade424876
@@ -82,6 +92,14 @@ entries:
     - https://github.com/tommy-skaug/charts/releases/download/conduit-0.2.1/conduit-0.2.1.tgz
     version: 0.2.1
   dispatch:
+  - apiVersion: v2
+    created: "2023-12-16T12:44:10.315948019Z"
+    description: Netflix Dispatch incident management system
+    digest: 0143b28e3e96a3fe42112da2993cf3b7ad99e00cd35579ad12b1d7e79042bdf6
+    name: dispatch
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.1.2/dispatch-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     created: "2023-12-15T17:54:39.123787956Z"
     description: Netflix Dispatch incident management system
@@ -184,4 +202,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-15T17:54:39.123985759Z"
+generated: "2023-12-16T12:44:10.316006027Z"
