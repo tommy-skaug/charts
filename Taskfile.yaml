@@ -1,0 +1,12 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+
+tasks:
+  default:
+    silent: true
+    cmds:
+      - task -l
