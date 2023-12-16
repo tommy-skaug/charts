@@ -16,9 +16,9 @@ spec:
         app: {{ include "dispatch.fullname" . }}-web
     spec:
       initContainers:
-        - name: web-db-init
+        - name: web-db-upgrade
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ["dispatch", "database", "init"]
+          command: ["dispatch", "database", "upgrade"]
           env: &dispatchEnv
             - name:  DISPATCH_UI_URL
               value: "{{ .Values.url }}"
@@ -31,6 +31,11 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.envFromSecret }}
+                
+        - name: web-plugin-install
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ["dispatch", "plugins", "install"]
+          env: *dispatchEnv
 
       containers:
         - name: web

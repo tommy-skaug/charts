@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "dispatch.fullname" . }}-web-db-init
+  labels:
+    {{- include "dispatch.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: general-db-init
+          image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Values.postgres.secretName }}
+        - name: dispatch-db-init
+          image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
+          command: ["dispatch", "database", "init"]
+          env: &dispatchEnv
+            - name:  DISPATCH_UI_URL
+              value: "{{ .Values.url }}"
+            - name:  DATABASE_HOSTNAME
+              value: "{{ .Values.postgres.hostname }}"
+            - name:  DATABASE_PORT
+              value: "{{ .Values.postgres.port }}"
+            - name:  DATABASE_NAME
+              value: "{{ .Values.postgres.database_name }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Values.envFromSecret }}
+      # Tolerate a few failures, adjust the number as needed
+  backoffLimit: 3
