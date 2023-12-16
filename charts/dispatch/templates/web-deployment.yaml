@@ -29,13 +29,13 @@ spec:
             - containerPort: 8000
           env:
             - name:  DISPATCH_UI_URL
-              value: {{ .Values.url }}
+              value: "{{ .Values.url }}"
             - name:  DATABASE_HOSTNAME
-              value: {{ .Values.postgres.hostname }}
+              value: "{{ .Values.postgres.hostname }}"
             - name:  DATABASE_PORT
-              value: {{ .Values.postgres.port }}
+              value: "{{ .Values.postgres.port }}"
             - name:  DATABASE_NAME
-              value: {{ .Values.postgres.database_name }}
+              value: "{{ .Values.postgres.database_name }}"
           envFrom:
             - secretRef:
                 name: {{ .Values.envFromSecret }}
