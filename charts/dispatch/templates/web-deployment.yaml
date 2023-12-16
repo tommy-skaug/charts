@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: web-db-init
-          image: "{{ .Values.web.image.repository }}:{{ .Values.web.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           command: ["web", "database", "init"]
       containers:
         - name: web
