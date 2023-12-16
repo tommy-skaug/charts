@@ -17,13 +17,6 @@ initContainers:
 url: http://localhost:80
 
 authentication:
-  #provider_slug: dispatch-auth-provider-basic
-  # provider_slug: dispatch-auth-provider-pkce
-  pkce:
-    dont_verify_at_hash: false
-    openid_connect_url: 
-    client_id: 
-    use_id_token: 
   provider_slug: dispatch-auth-provider-header
   header:
     header_name: Tailscale-User-Login

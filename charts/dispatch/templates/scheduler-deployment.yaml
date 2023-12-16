@@ -23,10 +23,6 @@ spec:
           env:
             - name: MJML_PATH
               value: /node_modules/.bin
-            - name: DISPATCH_AUTHENTICATION_PROVIDER_SLUG
-              value: "{{ .Values.authentication.provider_slug }}"
-            - name: DISPATCH_AUTHENTICATION_DEFAULT_USER
-              value: dispatch@
             - name:  DISPATCH_UI_URL
               value: "{{ .Values.url }}"
             - name:  DATABASE_HOSTNAME
