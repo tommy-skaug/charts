@@ -20,7 +20,7 @@ spec:
           image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
           envFrom:
             - secretRef:
-                name: {{ .Values.postgres.secretRef.name }}
+                name: {{ .Values.postgres.secretName }}
       containers:
         - name: core
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
