@@ -93,6 +93,14 @@ entries:
     version: 0.2.1
   dispatch:
   - apiVersion: v2
+    created: "2023-12-16T17:14:24.300921663Z"
+    description: Netflix Dispatch incident management system
+    digest: d374e14c84462c36ced9074ab9a9aa321f5a1e32007b24c25586d0384257c928
+    name: dispatch
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.2.6/dispatch-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
     created: "2023-12-16T16:56:34.57569122Z"
     description: Netflix Dispatch incident management system
     digest: 295ac1bedcd6201ad34cd428958480f1122351473d6b94889d01b0d32cec4fa6
@@ -290,4 +298,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-16T16:56:34.575770288Z"
+generated: "2023-12-16T17:14:24.301056033Z"
