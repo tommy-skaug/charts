@@ -1,3 +1,4 @@
+{{- if .Values.core.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,7 +27,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: {{ .Values.core.container.command }}
           envFrom:
-            - configMapRef:
-                name: {{ include "dispatch.fullname" . }}-config
             - secretRef:
-                name: {{ .Values.core.secretRef.name }}
+                name: {{ .Values.core.container.envFrom.secretRef.name }}
+{{- end }}

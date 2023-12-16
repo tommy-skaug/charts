@@ -1,3 +1,4 @@
+{{- if .Values.scheduler.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,7 +21,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: {{ .Values.scheduler.command }}
           envFrom:
-            - configMapRef:
-                name: {{ include "dispatch.fullname" . }}-config
             - secretRef:
-                name: {{ .Values.scheduler.secretRef.name }}
+                name: {{ .Values.scheduler.container.envFrom.secretRef.name }}
+{{- end }}

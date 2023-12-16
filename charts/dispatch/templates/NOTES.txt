@@ -1,1 +1,9 @@
-NOTES.txt
+This is Netflix Dispatch, an unofficial Helm Chart.
+
+The chart has three components:
+
+* core: 
+* scheduler: 
+* web: 
+
+More info: https://netflix.github.io/dispatch/
