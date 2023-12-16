@@ -25,15 +25,11 @@ web:
     port: 80
 
 scheduler:
-  command: ["scheduler", "start"]
-
-configMap:
-  general:
-    COMPOSE_PROJECT_NAME: "dispatch"
-    DATABASE_HOSTNAME: "postgres-rw.databases.svc.cluster.local"
-    DATABASE_NAME: "dispatch"
-    DATABASE_PORT: "5432"
+  command: ["dispatch", "scheduler", "start"]
 
 postgres:
+  hostname: "postgres-rw.databases.svc.cluster.local"
+  database_name: "postgres"
+  port: "5432"
   secretRef:
     name: dispatch-secret

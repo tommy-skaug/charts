@@ -14,6 +14,10 @@ spec:
       labels:
         app: {{ include "dispatch.fullname" . }}-web
     spec:
+      initContainers:
+        - name: web-db-init
+          image: "{{ .Values.web.image.repository }}:{{ .Values.web.image.tag }}"
+          command: ["web", "database", "init"]
       containers:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -21,10 +25,6 @@ spec:
           command: {{ .Values.web.command }}
           ports:
             - containerPort: {{ .Values.web.container.port }}
-          service:
-            type: ClusterIP
-            port: 80
-            targetPort: 8000
           envFrom:
             - configMapRef:
                 name: {{ include "dispatch.fullname" . }}-config
