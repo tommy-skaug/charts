@@ -23,4 +23,4 @@ spec:
             - configMapRef:
                 name: {{ include "dispatch.fullname" . }}-config
             - secretRef:
-                name: {{ .Values.postgres.secretRef.name }}
+                name: {{ .Values.scheduler.secretRef.name }}

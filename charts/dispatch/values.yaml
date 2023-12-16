@@ -13,19 +13,23 @@ initContainers:
           name: dispatch-secret
 
 core:
-  container:
-    command: []
+  secretRef:
+    name: dispatch-secret
 
 web:
   container:
     port: 8000
     command: ["dispatch", "server", "start", "dispatch.main:app", "--host=0.0.0.0"]
+  secretRef:
+    name: dispatch-secret
   service:
     type: ClusterIP
     port: 80
 
 scheduler:
   command: ["dispatch", "scheduler", "start"]
+  secretRef:
+    name: dispatch-secret
 
 postgres:
   hostname: "postgres-rw.databases.svc.cluster.local"
