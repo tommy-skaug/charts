@@ -26,6 +26,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: {{ .Values.core.container.command }}
+          env: {{ .Values.core.container.env }}
           envFrom:
             - secretRef:
                 name: {{ .Values.core.container.envFrom.secretRef.name }}

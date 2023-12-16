@@ -26,6 +26,7 @@ spec:
           command: {{ .Values.web.container.command }}
           ports:
             - containerPort: {{ .Values.web.container.port }}
+          env: {{ .Values.web.container.env }}
           envFrom:
             - secretRef:
                 name: {{ .Values.web.container.envFrom.secretRef.name }}

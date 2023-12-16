@@ -15,6 +15,7 @@ initContainers:
 core:
   enabled: true
   container:
+    env: []
     envFrom:
       secretRef:
         name: dispatch-secret
@@ -24,6 +25,7 @@ web:
   container:
     port: 8000
     command: ["dispatch", "server", "start", "dispatch.main:app", "--host=0.0.0.0"]
+    env: []
     envFrom:
       secretRef:
         name: dispatch-secret
@@ -35,6 +37,7 @@ scheduler:
   enabled: true
   container:
     command: ["dispatch", "scheduler", "start"]
+    env: []
     envFrom:
       secretRef:
         name: dispatch-secret
