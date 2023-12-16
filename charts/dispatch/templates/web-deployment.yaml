@@ -23,7 +23,7 @@ spec:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: {{ .Values.web.command }}
+          command: {{ .Values.web.container.command }}
           ports:
             - containerPort: {{ .Values.web.container.port }}
           envFrom:

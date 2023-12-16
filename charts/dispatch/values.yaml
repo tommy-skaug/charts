@@ -14,8 +14,10 @@ initContainers:
 
 core:
   enabled: true
-  secretRef:
-    name: dispatch-secret
+  container:
+    envFrom:
+      secretRef:
+        name: dispatch-secret
 
 web:
   enabled: true
@@ -31,9 +33,8 @@ web:
 
 scheduler:
   enabled: true
-  command: ["dispatch", "scheduler", "start"]
   container:
-    command: ["dispatch", "scheduler"]
+    command: ["dispatch", "scheduler", "start"]
     envFrom:
       secretRef:
         name: dispatch-secret

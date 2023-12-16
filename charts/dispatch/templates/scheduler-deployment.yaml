@@ -19,7 +19,7 @@ spec:
         - name: scheduler
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: {{ .Values.scheduler.command }}
+          command: {{ .Values.scheduler.container.command }}
           envFrom:
             - secretRef:
                 name: {{ .Values.scheduler.container.envFrom.secretRef.name }}
