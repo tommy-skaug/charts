@@ -29,5 +29,5 @@ spec:
           env: {{ .Values.core.container.env }}
           envFrom:
             - secretRef:
-                name: {{ .Values.core.container.envFrom.secretRef.name }}
+                name: {{ .Values.envFromSecret }}
 {{- end }}

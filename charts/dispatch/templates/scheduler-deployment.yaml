@@ -23,5 +23,5 @@ spec:
           env: {{ .Values.scheduler.container.env }}
           envFrom:
             - secretRef:
-                name: {{ .Values.scheduler.container.envFrom.secretRef.name }}
+                name: {{ .Values.envFromSecret }}
 {{- end }}
