@@ -18,7 +18,7 @@ spec:
       initContainers:
         - name: web-db-init
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ["dispatch", "web", "database", "init"]
+          command: ["dispatch", "database", "init"]
           env: &dispatchEnv
             - name:  DISPATCH_UI_URL
               value: "{{ .Values.url }}"

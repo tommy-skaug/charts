@@ -1,4 +1,4 @@
 apiVersion: v2
 name: dispatch
 description: Netflix Dispatch incident management system
-version: 0.2.7
+version: 0.2.8
