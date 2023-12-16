@@ -19,14 +19,23 @@ spec:
         - name: web-db-init
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           command: ["dispatch", "web", "database", "init"]
+
       containers:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: {{ .Values.web.container.command }}
+          command: ["dispatch", "server", "start", "dispatch.main:app", "--host=0.0.0.0"]
           ports:
-            - containerPort: {{ .Values.web.container.port }}
-          env: {{ .Values.web.container.env }}
+            - containerPort: 8000
+          env:
+            - name:  DISPATCH_UI_URL
+              value: {{ .Values.url }}
+            - name:  DATABASE_HOSTNAME
+              value: {{ .Values.postgres.hostname }}
+            - name:  DATABASE_PORT
+              value: {{ .Values.postgres.port }}
+            - name:  DATABASE_NAME
+              value: {{ .Values.postgres.database_name }}
           envFrom:
             - secretRef:
                 name: {{ .Values.envFromSecret }}

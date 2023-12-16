@@ -1,4 +1,4 @@
-envFromSecret: dispatch-secret
+envFromSecret: *secret dispatch-secret
 
 image:
   repository: ghcr.io/tommy-skaug/dispatch
@@ -12,34 +12,25 @@ initContainers:
       tag: "16"
     envFrom:
       - secretRef:
-          name: dispatch-secret
+          name: &secret
+
+url: http://localhost:80
 
 core:
   enabled: true
-  container:
-    env: []
-
 
 web:
   enabled: true
-  container:
-    port: 8000
-    command: ["dispatch", "server", "start", "dispatch.main:app", "--host=0.0.0.0"]
-    env: []
-
   service:
     type: ClusterIP
     port: 80
 
 scheduler:
   enabled: true
-  container:
-    command: ["dispatch", "scheduler", "start"]
-    env: []
 
 postgres:
-  hostname: "postgres-rw.databases.svc.cluster.local"
-  database_name: "postgres"
-  port: "5432"
+  hostname:      "postgres-rw.databases.svc.cluster.local"
+  database_name: "dispatch"
+  port:          "5432"
   secretRef:
-    name: dispatch-secret
+    name: &secret

@@ -25,8 +25,15 @@ spec:
         - name: core
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: {{ .Values.core.container.command }}
-          env: {{ .Values.core.container.env }}
+          env:
+            - name:  DISPATCH_UI_URL
+              value: {{ .Values.url }}
+            - name:  DATABASE_HOSTNAME
+              value: {{ .Values.postgres.hostname }}
+            - name:  DATABASE_PORT
+              value: {{ .Values.postgres.port }}
+            - name:  DATABASE_NAME
+              value: {{ .Values.postgres.database_name }}
           envFrom:
             - secretRef:
                 name: {{ .Values.envFromSecret }}
