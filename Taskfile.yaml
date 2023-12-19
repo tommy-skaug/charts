@@ -6,6 +6,15 @@ vars:
     sh: "git rev-parse --show-toplevel"
 
 tasks:
+  validate:
+    desc: Validate charts
+  silent: False
+  cmds:
+    - |
+      for f in $(ls -d charts/* | fgrep -v '.yaml')
+        helm lint $f
+      end
+
   default:
     silent: true
     cmds:
