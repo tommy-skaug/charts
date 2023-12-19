@@ -1,3 +1,1 @@
-
-
-https://cloudnative-pg.io/blog/hasura-graphql/
+# Hasura GraphQL Server
