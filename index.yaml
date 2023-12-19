@@ -252,6 +252,16 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.1.0/dispatch-0.1.0.tgz
     version: 0.1.0
+  hasura-engine:
+  - apiVersion: v2
+    created: "2023-12-19T16:48:14.610734938Z"
+    description: GraphQL Engine to make data accessible over a GraphQL API
+    digest: 2d9ddd118b05d8bbabedcb35e8609e674f61ed75c73dafc00a2fb266c45bd120
+    name: hasura-engine
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/hasura-engine-0.1.2/hasura-engine-0.1.2.tgz
+    version: 0.1.2
   matrix-media-repo:
   - apiVersion: v2
     appVersion: 1.3.2
@@ -346,4 +356,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-16T20:46:06.806386055Z"
+generated: "2023-12-19T16:48:14.610818654Z"
