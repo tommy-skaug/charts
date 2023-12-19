@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hasura.fullname" . }}
+  labels:
+    {{- include "hasura.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "hasura.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "hasura.fullname" . }}
+    spec:
+      initContainers:
+        - name: db-init
+          image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Values.envFromSecret }}
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: hasura
+        env:
+          - name: HASURA_GRAPHQL_ADMIN_INTERNAL_ERRORS
+            value: "false"
+          - name: HASURA_GRAPHQL_ENABLE_MAINTENANCE_MODE
+            value: "false"
+          - name: HASURA_GRAPHQL_CORS_DOMAIN
+            value: "{{ .Values.corsDomains }}"
+          - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+            value: "{{ .Values.features.console }}"
+          - name: HASURA_GRAPHQL_DEV_MODE
+            value: "{{ .Values.features.devMode }}"
+        envFrom:
+          - secretRef:
+              name: {{ .Values.envFromSecret }}
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: http
+        resources: {}
