@@ -1,6 +1,6 @@
 image:
   repository: hasura/graphql-engine
-  tag: v2.36.0
+  tag: v2.36.1
   pullPolicy: IfNotPresent
 
 initContainers:
