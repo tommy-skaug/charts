@@ -11,8 +11,7 @@
 
 <div align="center">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
-    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
-  </a>
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>
 
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
