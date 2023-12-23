@@ -44,7 +44,7 @@ Below you'll find an overview of the charts and an intro to get you started.
   database.
 
 - [[charts/attic][Attic]]: Nix Binary Cache server that reduces the time to compile and distribute 
-  builds (introduction post [[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][here]])
+  builds ([[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][intro post]])
 
 - [[charts/][Dispatch]]: A incident management and coordination system developed by Netflix.
 
