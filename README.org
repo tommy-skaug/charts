@@ -3,13 +3,9 @@
 #+BEGIN_HTML
 <div>
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
-    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>
-
-&nbsp;
-
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>&nbsp;
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment" class="badge">
-    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-  </a>
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" /></a>
 </div>
 <p>
 <div align="center">
