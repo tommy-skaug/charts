@@ -11,7 +11,7 @@
 #+HTML: <div align="center">
 #+CAPTION: Releases
 #+NAME: fig:gh-actions-releases
-[[https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg]]
+[[https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg][Releases building]]
 
 #+CAPTION: Index updates
 #+NAME: fig:gh-actions-index-updates
