@@ -7,19 +7,16 @@
 #+HTML:   <p>... powered by a Norwegian bear 🐻</p>
 #+HTML: </div>
 
-#+ATTR_HTML: :align center
-#+HTML: <div align="center">
-#+CAPTION: Releases
-#+NAME: fig:gh-actions-releases
 #+BEGIN_HTML
-<a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
-  <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
-</a>
-<a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
-  <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-</a>
+<div align="center">
+  <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
+  </a>
+  <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
+  </a>
+</div>
 #+END_HTML
-#+HTML: </div>
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
 contains Helm charts for infrastructure and some related to security operations.
