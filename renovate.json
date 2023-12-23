@@ -1,3 +1,16 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>tommy-skaug/k8s-gitops//.github",
+    "local>tommy-skaug/k8s-gitops//.github//merge-queue.json"
+  ],
+  "assignees": ["tommy-skaug"],
+  "hostRules": [
+    {
+      "matchHost": "api.github.com",
+      "concurrentRequestLimit": 1
+    }
+  ],
+  "customManagers": [],
+  "packageRules": []
 }
