@@ -3,7 +3,7 @@ image:
   tag: v1.30.0
   pullPolicy: IfNotPresent
 initContainers:
-  7.1:
+  "7.1":
     image:
       repository: foundationdb/foundationdb-kubernetes-sidecar
       tag: 7.1.49-1
