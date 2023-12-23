@@ -12,10 +12,18 @@
           background-color: black;
           color: white;
         }
+        .badge {
+          padding: 10px;
+        }
       </style>
 
       <div class="container">
-        <h1>Hi 👋</h1>
+            <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
+              <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
+            </a>
+            <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment" class="badge">
+              <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
+            </a>
       </div>
     </div>
   </foreignObject>
@@ -28,16 +36,7 @@
 </div>
 <p />
 
-    <span>
-      <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
-        <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
-      </a>
-    </span>
-    <span>
-      <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
-        <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-      </a>
-    </span>
+
 
 <div align="center">
 <table cellspacing="20" cellpadding="20" border=0>
