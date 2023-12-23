@@ -4,7 +4,8 @@
 <p>
 <div align="center">
   <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
-  <i>... powered by a Norwegian bear 🐻</i>
+  <h3>Minimal and Opinionated Helm Charts</h3>
+  <p><i>... powered by a Norwegian bear 🐻</i></p>
 </div>
 <p />
 
@@ -19,7 +20,6 @@
 </div>
 </p>
 <p />
-<h2>Minimal and Opinionated Helm Charts</h2>
 #+END_HTML
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
