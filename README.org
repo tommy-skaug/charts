@@ -5,12 +5,7 @@
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>
 
-  <!-- SVG Horizontal Spacer -->
-  <span><svg fill="none" viewBox="0 0 600 300" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-      <div xmlns="http://www.w3.org/1999/xhtml"></div>
-    </foreignObject>
-  </svg></span>
+&nbsp;
 
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment" class="badge">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
