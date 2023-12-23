@@ -10,8 +10,8 @@
 <p />
 
 <div align="center">
-<table cellspacing="20" cellpadding="20" border=none>
-  <tr>
+<table cellspacing="20" cellpadding="20" border=0>
+  <tr border=0>
     <td border=0>
       <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
         <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
