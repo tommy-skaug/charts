@@ -10,12 +10,12 @@
 <p />
 
 <div align="center">
+<span>
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>
-
+</span>
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
-    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-  </a>
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" /></a>
 </div>
 </p>
 <p />
