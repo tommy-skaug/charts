@@ -6,6 +6,7 @@
   <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
   <p>... powered by a Norwegian bear 🐻</p>
 </div>
+<p />
 
 <div align="center">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
@@ -17,7 +18,7 @@
   </a>
 </div>
 </p>
-<p /><p /><p />
+<p />
 <h2>Minimal and Opinionated Helm Charts</h2>
 #+END_HTML
 
