@@ -7,6 +7,9 @@
   <h3>Minimal and Opinionated Helm Charts</h3>
   <p><i>... powered by a Norwegian bear 🐻</i></p>
 </div>
+
+<p>&nbsp;</p>
+
 <div align="center">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" /></a>
@@ -17,10 +20,8 @@
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
   </a>
 </div>
-
-</div>
 </p>
-<p />
+<p>&nbsp;</p><p>&nbsp;</p>
 #+END_HTML
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
