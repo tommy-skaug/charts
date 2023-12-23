@@ -57,7 +57,7 @@ Below you'll find an overview of the charts and an intro to get you started.
 
 *** Usage
 
-**** Manual Installation
+**** Exploration
 
 You can explore this repo by using the following commands if you have the Kubernetes package manager
  installed:
