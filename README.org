@@ -21,7 +21,7 @@
   </a>
 </div>
 </p>
-<p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
 #+END_HTML
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
