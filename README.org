@@ -1,4 +1,4 @@
-#+TITLE: Minimal and Opinionated Helm Charts 
+a#+TITLE: Minimal and Opinionated Helm Charts 
 #+DATE:  2023-10-18
 
 #+BEGIN_HTML
@@ -16,9 +16,10 @@
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
   </a>
 </div>
+<spacer>
 #+END_HTML
 
-* * * * * * * *
+
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
 contains Helm charts for infrastructure and some related to security operations.
