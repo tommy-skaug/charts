@@ -7,6 +7,8 @@
 #+HTML:   <p>... powered by a Norwegian bear 🐻</p>
 #+HTML: </div>
 
+#+ATTR_HTML: :align center
+#+HTML: <div align="center">
 #+CAPTION: Releases
 #+NAME: fig:gh-actions-releases
 [[https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg]]
@@ -14,7 +16,7 @@
 #+CAPTION: Index updates
 #+NAME: fig:gh-actions-index-updates
 [[https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg]]
-
+#+HTML: </div>
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
 contains Helm charts for infrastructure and some related to security operations.
