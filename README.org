@@ -1,26 +1,22 @@
 #+DATE:  2023-10-18
 
 #+BEGIN_HTML
-<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <div class="container" style="background: red;">
-          <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
-            <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
-          </a>
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="91.976px" height="15.093px" viewBox="0 0 91.976 15.093" enable-background="new 0 0 91.976 15.093" xml:space="preserve">
-</svg>
-          <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment" class="badge">
-            <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-          </a>
-      </div>
-    </div>
-  </foreignObject>
-</svg>
+<div>
+  <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml" class="badge">
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
+  </a>
+
+  <!-- SVG Horizontal Spacer -->
+  <svg fill="none" viewBox="0 0 600 300" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+      <div xmlns="http://www.w3.org/1999/xhtml"></div>
+    </foreignObject>
+  </svg>
+
+  <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment" class="badge">
+    <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
+  </a>
+</div>
 <p>
 <div align="center">
   <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
@@ -30,22 +26,6 @@
 <p />
 
 
-
-<div align="center">
-<table cellspacing="20" cellpadding="20" border=0>
-  <tr border=0>
-    <td border=0>
-      <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
-        <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
-      </a>
-    </td>
-    <td border=0>
-      <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
-        <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
-      </a>
-    </td>
-  </tr>
-</table>
 </div>
 </p>
 <p />
