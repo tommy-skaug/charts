@@ -1,4 +1,4 @@
-a#+TITLE: Minimal and Opinionated Helm Charts 
+#+TITLE: Minimal and Opinionated Helm Charts 
 #+DATE:  2023-10-18
 
 #+BEGIN_HTML
