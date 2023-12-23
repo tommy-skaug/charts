@@ -255,6 +255,21 @@ entries:
   fdb-operator:
   - apiVersion: v2
     appVersion: v1.30.0
+    created: "2023-12-23T11:44:38.939495907Z"
+    description: A Helm chart for foundationDB operator
+    digest: 793bb65cdd638c3fa306d9fa6e7a5c5ea2865342b23db2595f19218838412189
+    home: https://www.foundationdb.org/
+    maintainers:
+    - name: foundationdb-ci
+    name: fdb-operator
+    sources:
+    - https://github.com/FoundationDB/fdb-kubernetes-operator/tree/master/helm/fdb-operator
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/fdb-operator-0.2.2/fdb-operator-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: v1.30.0
     created: "2023-12-23T10:58:57.247899917Z"
     description: A Helm chart for foundationDB operator
     digest: b8dfcaef0331fac45fe7490a23cfbdd7a998401383c432ad8ad960a32a9d23b9
@@ -372,4 +387,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-23T10:58:57.247964927Z"
+generated: "2023-12-23T11:44:38.93966342Z"
