@@ -7,7 +7,7 @@
   <p>... powered by a Norwegian bear 🐻</p>
 </div>
 
-<div align="center">
+<div align="center" style="margin-bottom:50px">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
   </a>
