@@ -32,7 +32,7 @@ package manager. The builds are made available on GitHub Releases and on GitHub 
 
 Some charts only have Docker images available somewhere else or built by me, and others have badly
 implemented Charts which I've chosen to simplify: opinionated and minimal. Opinionated means that
-they're adapted to [FluxCD](https://fluxcd.io/) and uses best practices such as [external-secrets](https://external-secrets.io/latest/). 
+they're adapted to [[https://fluxcd.io/][FluxCD]] and uses best practices such as [[https://external-secrets.io/latest/][external-secrets]].
 
 As with everything Kubernetes it is a learning journey, however, so feel free to open an issue.
 
