@@ -1,4 +1,3 @@
-#+TITLE: Minimal and Opinionated Helm Charts 
 #+DATE:  2023-10-18
 
 #+BEGIN_HTML
@@ -16,7 +15,7 @@
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
   </a>
 </div>
-<spacer>
+<h2>Minimal and Opinionated Helm Charts</h2>
 #+END_HTML
 
 
