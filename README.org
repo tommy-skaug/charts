@@ -34,7 +34,7 @@ Some charts only have Docker images available somewhere else or built by me, and
 implemented Charts which I've chosen to simplify: opinionated and minimal. Opinionated means that
 they're adapted to [[https://fluxcd.io/][FluxCD]] and uses best practices such as [[https://external-secrets.io/latest/][external-secrets]].
 
-As with everything Kubernetes it is a learning journey, however, so feel free to open an issue.
+As with everything Kubernetes it is a learning journey, so feel free to open an issue.
 
 Below you'll find an overview of the charts and an intro to get you started.
 
