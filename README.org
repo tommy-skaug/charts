@@ -1,12 +1,25 @@
 #+DATE:  2023-10-18
 
 #+BEGIN_HTML
-<style
-  type="text/css">
-h1 {color:red;}
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        .container {
+          display: flex;
+          width: 100%;
+          height: 300px;
+          background-color: black;
+          color: white;
+        }
+      </style>
 
-p {color:blue;}
-</style>
+      <div class="container">
+        <h1>Hi 👋</h1>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
 <p>
 <div align="center">
   <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
