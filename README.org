@@ -2,44 +2,105 @@
 #+DATE:  2023-10-18
 
 
-Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. 
+Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
+contains Helm charts for infrastructure and some related to security operations.
 
-*** Chart Implementation Guidelines
+This is a Helm Chart repository that provides packages for [[https://helm.sh/][Helm]], the Kubernetes
+package manager. The builds are made available on GitHub Releases and on GitHub Pages. 
 
-**** TODO Example chart definition
+Some charts only have Docker images available somewhere else or built by me, and others have badly
+implemented Charts which I've chosen to simplify: opinionated and minimal. Opinionated means that
+they're adapted to [FluxCD](https://fluxcd.io/) and uses best practices such as [external-secrets](https://external-secrets.io/latest/). 
 
-#+BEGIN_SRC
-$ helm repo add tommy-skaug-charts ghcr.io/tommy-skaug/charts
+As with everything Kubernetes it is a learning journey, however, so feel free to open an issue.
+
+Below you'll find an overview of the charts and an intro to get you started.
+
+*** Overview
+
+- [[charts/conduit][Conduit]]: An efficient and self-contained Matrix server using an embedded RocksDB 
+  database.
+
+- [[charts/attic][Attic]]: Nix Binary Cache server that reduces the time to compile and distribute 
+  builds (introduction post [[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][here]])
+
+- [[charts/][Dispatch]]: A incident management and coordination system developed by Netflix.
+
+- [[charts/foundationdb][FoundationDB]]: Distributed database with ACID transactions developed by Apple.
+
+- [[charts/hasura-engine][Hasura]]: Connects to databases and services to provide a realtime GraphQL API.
+
+- [[charts/netbox][Netbox]]: Modeling and docs for IP address management (IPAM) and datacenter 
+  infrastructure management (DCIM).
+
+*** Usage
+
+**** Manual Installation
+
+You can explore this repo by using the following commands if you have the Kubernetes package manager
+ installed:
+
+#+BEGIN_SRC shell
+helm repo add 252 https://charts.252.no
+helm search repo dispatch
+helm install dispatch helm-charts/charts/dispatch --namespace=toolbox
+helm search repo dispatch
+
+helm show values 252/dispatch
+
+**** As Code with FluxCD
+
+First take care to setup the chart:
+
+#+BEGIN_SRC yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: 252-charts
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://charts.252.no
+#+END_SRC
+
+You can reference e.g. the Dispatch chart like this:
+
+#+BEGIN_SRC yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app dispatch
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: dispatch
+      version: 0.3.2
+      sourceRef:
+        kind: HelmRepository
+        name: 252-charts
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    envFromSecret: &secret dispatch-secret
+[...]
 #+END_SRC
 
 Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
-*** Charts
-
-**** [[charts/conduit][Conduit]]
-
-An efficient and self-contained Matrix server using an embedded RocksDB database.
-
-**** [[][Attic]]
-
-[[https://github.com/zhaofengli/attic][Attic]] (introduction post [[https://discourse.nixos.org/t/introducing-attic-a-self-hostable-nix-binary-cache-server/24343][here]]) is a Nix Binary Cache server that reduces the time to compile and distribute builds.
-
-
-*** Usage
-
-
-
-** License
+** Licenses and Gratitude 🤩
 
 Repo was inspired by [[https://gitlab.com/ananace/charts][ananace]] (some parts imported and rewritten).
 
-The general license of this repo is DWTFYWTPB, but it is Apache v2 in some of the repos which were built on other's work. See the individual chart for details.
-
-
-
-
-helm install dispatch ./dispatch -f values-local.yaml
-
-kubectl describe pod 
-
-helm delete dispatch
+The general license of this repo is DWTFYWTPB, but respect Apache v2 in some of the repos which were 
+built on other's work. See the individual chart directory for details and these applies.
