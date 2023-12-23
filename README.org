@@ -7,7 +7,7 @@
   <p>... powered by a Norwegian bear 🐻</p>
 </div>
 
-<div align="center" style="margin-bottom:50px">
+<div align="center">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
   </a>
@@ -17,6 +17,9 @@
   </a>
 </div>
 #+END_HTML
+
+--------------------
+
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
 contains Helm charts for infrastructure and some related to security operations.
