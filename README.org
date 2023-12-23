@@ -1,17 +1,17 @@
 #+TITLE: Minimal and Opinionated Helm Charts 
 #+DATE:  2023-10-18
 
-#+ATTR_HTML: :align center
-#+HTML: <div align="center">
-#+HTML:   <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
-#+HTML:   <p>... powered by a Norwegian bear 🐻</p>
-#+HTML: </div>
-
 #+BEGIN_HTML
+<div align="center">
+  <img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
+  <p>... powered by a Norwegian bear 🐻</p>
+</div>
+
 <div align="center">
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
   </a>
+
   <a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
   </a>
