@@ -15,7 +15,7 @@
     <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
   </a>
 </div>
-<p />
+<p /><p /><p />
 <h2>Minimal and Opinionated Helm Charts</h2>
 #+END_HTML
 
