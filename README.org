@@ -10,7 +10,7 @@
 <p />
 
 <div align="center">
-<table cellspacing="20" cellpadding="20">
+<table cellspacing="20" cellpadding="20" border="0">
   <tr>
     <td>
       <a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
