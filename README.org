@@ -1,5 +1,25 @@
-#+TITLE: Minimal and Opinionated Helm Charts
+#+TITLE: Minimal and Opinionated Helm Charts 
 #+DATE:  2023-10-18
+
+<div align="center">
+<img src="https://helm.sh/img/helm.svg" align="center" width="144px" height="144px"/>
+
+... powered by a Norwegian bear 🐻
+
+</div>
+
+<div align="center">
+
+#+CAPTION: Releases
+#+NAME:   fig:gh-actions-releases
+[[https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg]]
+
+
+#+CAPTION: Index updates
+#+NAME:   fig:gh-actions-index-updates
+[[https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg]]
+
+</div>
 
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
@@ -16,7 +36,7 @@ As with everything Kubernetes it is a learning journey, however, so feel free to
 
 Below you'll find an overview of the charts and an intro to get you started.
 
-*** Overview
+*** 📖 Overview
 
 - [[charts/conduit][Conduit]]: An efficient and self-contained Matrix server using an embedded RocksDB 
   database.
@@ -41,12 +61,20 @@ You can explore this repo by using the following commands if you have the Kubern
  installed:
 
 #+BEGIN_SRC shell
+# add the package source
 helm repo add 252 https://charts.252.no
-helm search repo dispatch
-helm install dispatch helm-charts/charts/dispatch --namespace=toolbox
-helm search repo dispatch
 
+# search for a specific chart
+helm search repo dispatch
+# or list all available charts
+helm search repo 252 -l 
+
+# show configuration options
 helm show values 252/dispatch
+
+# install a chart
+helm install dispatch helm-charts/charts/dispatch --namespace=toolbox
+#+END_SRC
 
 **** As Code with FluxCD
 
