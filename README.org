@@ -55,7 +55,7 @@ Below you'll find an overview of the charts and an intro to get you started.
 - [[charts/netbox][Netbox]]: Modeling and docs for IP address management (IPAM) and datacenter 
   infrastructure management (DCIM).
 
-*** Usage
+*** 🧑‍💻 Usage
 
 **** Exploration
 
@@ -128,7 +128,7 @@ spec:
 
 Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
 
-** Licenses and Gratitude 🤩
+** 🤩 Licenses and Gratitude 
 
 Repo was inspired by [[https://gitlab.com/ananace/charts][ananace]] (some parts imported and rewritten).
 
