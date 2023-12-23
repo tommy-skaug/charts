@@ -11,11 +11,14 @@
 #+HTML: <div align="center">
 #+CAPTION: Releases
 #+NAME: fig:gh-actions-releases
-[[[https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg]][Releases building]]
-
-#+CAPTION: Index updates
-#+NAME: fig:gh-actions-index-updates
-[[https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg]]
+#+BEGIN_HTML
+<a href="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml">
+  <img src="https://github.com/tommy-skaug/charts/actions/workflows/build-and-publish.yml/badge.svg" alt="Relases building" />
+</a>
+<a href="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment">
+  <img src="https://github.com/tommy-skaug/charts/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Index Updates" />
+</a>
+#+END_HTML
 #+HTML: </div>
 
 Backend-focused and UX optimized minmal charts built for use with deployments based on Flux. Generally 
