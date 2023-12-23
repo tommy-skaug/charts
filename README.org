@@ -65,6 +65,8 @@ You can explore this repo by using the following commands if you have the Kubern
 #+BEGIN_SRC shell
 # add the package source
 helm repo add 252 https://charts.252.no
+# or update the repo
+helm repo update 252
 
 # search for a specific chart
 helm search repo dispatch
