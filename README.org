@@ -48,7 +48,7 @@ Below you'll find an overview of the charts and an intro to get you started.
 
 - [[charts/][Dispatch]]: A incident management and coordination system developed by Netflix.
 
-- [[charts/foundationdb][FoundationDB]]: Distributed database with ACID transactions developed by Apple.
+- [[charts/foundationdb][FoundationDB]] (=fdb-operator=): Distributed database with ACID transactions developed by Apple.
 
 - [[charts/hasura-engine][Hasura]]: Connects to databases and services to provide a realtime GraphQL API.
 
