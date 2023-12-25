@@ -73,22 +73,26 @@ implementations.
 
 So what makes this repo different from others? It is KISS and Safe of course.
 
-- All secrets and ingresses are defined in a secret external from the chart
-- We expect that an ingress terminates external connection and TLS
-- Always use object storage over block storage when possible
+- Secrets and ingresses are defined external from the chart
+- Expect that an ingress terminates external connection and TLS
+- Object storage over block storage when possible
 - Never rely on vendor-specific components
-- We prefer open source
-- We never leave room for plaintext secrets, a sane default
-- We always leave for initContainers
-- We use as few values as possible in values.yaml
-- Always use external databases and transports
-- We always configure for OIDC when possible
-- A values file should be possible to read up on in minutes
-- We only support the current major version of Kubernetes and the application
-- Always enable service accounts
+- Prefer open source
+- No plaintext secrets - be sane
+- Leave room for initContainers
+- Use as few values as possible in values.yaml
+- Use external databases and transports
+- Configure for OIDC when possible
+- The values file should be possible to read up on in minutes
+- Only support the current major version of Kubernetes and application
+- Enable service accounts
 - Use semver for versioning
-- A chart should install on a small scale with default values
-- All charts are validated for structure and syntax before compilation
+- Chart should install on a small scale with default values
+- Charts are validated for structure, security and syntax before compilation
+
+Some of these principles are implicit and means you'll have to deploy with e.g. kustomize to
+get going.
+
 If you see a chart that does not comply with these principles, please open an issue.
 
 *** 🧑‍💻 Usage
