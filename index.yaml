@@ -368,6 +368,27 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/netbox-5.5.3/netbox-5.5.3.tgz
     version: 5.5.3
+  penpot:
+  - apiVersion: v2
+    appVersion: 1.19.3
+    created: "2023-12-25T19:05:36.818225836Z"
+    description: Penpot is a design and prototyping platform for teams and individuals.
+    digest: b172bde93e5abf4bb77de7414e8b93a5b1c0bc867684f8801cef232d1f38464a
+    home: https://github.com/tommy-skaug/charts
+    icon: https://avatars.githubusercontent.com/u/30179644?s=200&v=4
+    keywords:
+    - kubernetes
+    - penpot
+    - design
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: penpot
+    sources:
+    - https://github.com/penpot/penpot
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/penpot-2.0.0/penpot-2.0.0.tgz
+    version: 2.0.0
   sliding-sync-proxy:
   - apiVersion: v2
     appVersion: 0.99.11
@@ -387,4 +408,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-23T11:44:38.93966342Z"
+generated: "2023-12-25T19:05:36.818442989Z"
