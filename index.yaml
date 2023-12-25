@@ -317,6 +317,30 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.1.0/dispatch-0.1.0.tgz
     version: 0.1.0
+  excalidraw:
+  - apiVersion: v2
+    appVersion: 0.17.0
+    created: "2023-12-25T23:42:49.57953071Z"
+    description: Virtual whiteboard for sketching hand-drawn like diagrams
+    digest: 4562ca218be1ce20ff50be113431746d2b67841255bdf03611c2ada3e99470c9
+    icon: https://avatars.githubusercontent.com/u/59452120?s=200&v=4
+    keywords:
+    - kubernetes
+    - drawing
+    - whiteboard
+    - diagramming
+    - selfhosting
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: excalidraw
+    sources:
+    - https://github.com/excalidraw/excalidraw
+    - https://excalidraw.com/
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/excalidraw-0.2.2/excalidraw-0.2.2.tgz
+    version: 0.2.2
   fdb-operator:
   - apiVersion: v2
     appVersion: 7.3.27-1
@@ -520,4 +544,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-25T19:24:47.071860677Z"
+generated: "2023-12-25T23:42:49.792824738Z"
