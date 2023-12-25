@@ -16,21 +16,21 @@ spec:
         app: {{ include "penpot.fullname" . }}-backend
     spec:
       serviceAccountName: {{ include "penpot.serviceAccountName" . }}
-      securityContext:
-        fsGroup: 1001
+      # securityContext:
+      #   fsGroup: 1001
 
       containers:
         - name: {{ .Chart.Name }}-backend
           image: "penpotapp/backend:{{ .Values.penpotVersion }}"
           imagePullPolicy: IfNotPresent
-          securityContext:
-            runAsUser: 1001
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-              - all
-            readOnlyRootFilesystem: false
-            runAsNonRoot: true
+          # securityContext:
+          #   runAsUser: 1001
+          #   allowPrivilegeEscalation: false
+          #   capabilities:
+          #     drop:
+          #     - all
+          #   readOnlyRootFilesystem: false
+          #   runAsNonRoot: true
           volumeMounts:
             - mountPath: /opt/data
               name: app-data

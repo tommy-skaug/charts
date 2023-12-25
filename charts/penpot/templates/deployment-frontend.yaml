@@ -16,20 +16,20 @@ spec:
         app: {{ include "penpot.fullname" . }}-frontend
     spec:
       serviceAccountName: {{ include "penpot.serviceAccountName" . }}
-      securityContext:
-        fsGroup: 1001
+      # securityContext:
+      #   fsGroup: 1001
       containers:
         - name: {{ .Chart.Name }}-frontend
           image: "penpotapp/frontend:{{ .Values.penpotVersion }}"
           imagePullPolicy: IfNotPresent
-          securityContext:
-            runAsUser: 1001
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-              - all
-            readOnlyRootFilesystem: false
-            runAsNonRoot: true
+          # securityContext:
+          #   runAsUser: 1001
+          #   allowPrivilegeEscalation: false
+          #   capabilities:
+          #     drop:
+          #     - all
+          #   readOnlyRootFilesystem: false
+          #   runAsNonRoot: true
           env:
             - name: PENPOT_PUBLIC_URI
               value: {{ .Values.publicURL | quote }}
