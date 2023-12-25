@@ -2,8 +2,16 @@ apiVersion: v2
 name: conduit
 description: Conduit is a simple, fast and reliable chat server powered by Matrix.
 type: application
-version: 0.2.9
+version: 0.3.0
 appVersion: "0.6.0"
 maintainers:
 - name: Tommy Skaug
   email: tommy@skaug.me
+keywords:
+- kubernetes
+- matrixorg
+- messenger
+- encryption
+- selfhosted
+sources:
+- https://gitlab.com/famedly/conduit

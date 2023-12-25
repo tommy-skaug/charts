@@ -2,11 +2,16 @@ apiVersion: v2
 name: fdb-operator
 description: A Helm chart for foundationDB operator
 home: https://www.foundationdb.org/
-sources:
-- https://github.com/FoundationDB/fdb-kubernetes-operator/tree/master/helm/fdb-operator
 type: application
-version: 0.2.2
-appVersion: v1.30.0
+version: 0.2.3
+appVersion: 7.3.27-1
 maintainers:
 - name: Tommy Skaug
   email: tommy@skaug.me
+keywords:
+- kubernetes
+- apple
+- operator
+- database
+sources:
+- https://github.com/FoundationDB/fdb-kubernetes-operator/tree/master/helm/fdb-operator

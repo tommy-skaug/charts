@@ -1,4 +1,3 @@
----
 # Default values for netbox.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -20,8 +19,8 @@ service:
 ingress:
   enabled: false
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
   host: chart-example.local
   # Can also be specified by entering rules directly;
   # rules:
@@ -82,22 +81,22 @@ redis:
 # existingDjangoSecretKey: secret_key
 
 extraEnv: {}
-  # EMAIL_SERVER: localhost
-  # EMAIL_PORT: 25
-  # EMAIL_USERNAME: netbox
-  # EMAIL_TIMEOUT: 5
-  # EMAIL_FROM: netbox@example.com
-  # MAX_PAGE_SIZE: 1000
-  # WEBHOOKS_ENABLED: true
+# EMAIL_SERVER: localhost
+# EMAIL_PORT: 25
+# EMAIL_USERNAME: netbox
+# EMAIL_TIMEOUT: 5
+# EMAIL_FROM: netbox@example.com
+# MAX_PAGE_SIZE: 1000
+# WEBHOOKS_ENABLED: true
 
 extraEnvFrom: []
-  # - configMapRef:
-  #     name: custom-config
-  # - secretRef:
-  #     name: custom-secrets
+# - configMapRef:
+#     name: custom-config
+# - secretRef:
+#     name: custom-secrets
 
 extraSecrets: {}
-  # EMAIL_PASSWORD: netbox
+# EMAIL_PASSWORD: netbox
 
 # Ends up stored as extra.py in the netbox configuration, must be valid Python
 extraConfiguration: ''
@@ -108,13 +107,13 @@ extraConfiguration: ''
 #
 # https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins
 extraPlugins: ''
-  # PLUGINS = ["netbox_bgp"]
-  #
-  # PLUGINS_CONFIG = {
-  #   "netbox_bgp": {
-  #     ADD YOUR SETTINGS HERE
-  #   }
-  # }
+# PLUGINS = ["netbox_bgp"]
+#
+# PLUGINS_CONFIG = {
+#   "netbox_bgp": {
+#     ADD YOUR SETTINGS HERE
+#   }
+# }
 
 superuser:
   name: ''
@@ -123,12 +122,12 @@ superuser:
   password: ''
 
 resources: {}
-  # limits:
-  #   cpu: 500m
-  #   memory: 512Mi
-  # requests:
-  #   cpu: 500m
-  #   memory: 512Mi
+# limits:
+#   cpu: 500m
+#   memory: 512Mi
+# requests:
+#   cpu: 500m
+#   memory: 512Mi
 
 nodeSelector: {}
 
@@ -168,12 +167,12 @@ worker:
   replicaCount: 1
 
   resources: {}
-    # limits:
-    #   cpu: 100m
-    #   memory: 150Mi
-    # requests:
-    #   cpu: 100m
-    #   memory: 150Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 150Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 150Mi
 
   nodeSelector: {}
 
@@ -186,12 +185,12 @@ housekeeping:
   enabled: true
 
   resources: {}
-    # limits:
-    #   cpu: 100m
-    #   memory: 32Mi
-    # requests:
-    #   cpu: 100m
-    #   memory: 32Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 32Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 32Mi
 
   nodeSelector: {}
 

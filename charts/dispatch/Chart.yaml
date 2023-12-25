@@ -1,7 +1,17 @@
 apiVersion: v2
 name: dispatch
 description: Netflix Dispatch incident management system
-version: 0.3.2
+version: 0.3.3
 maintainers:
 - name: Tommy Skaug
   email: tommy@skaug.me
+icon: https://raw.githubusercontent.com/Netflix/dispatch/master/docs/branding/website_logo_solid_background_icon_only_square.png
+keywords:
+- kubernetes
+- crisis
+- management
+- incident
+- coordination
+sources:
+- https://netflix.github.io/dispatch/
+- https://github.com/Netflix/dispatch

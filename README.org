@@ -51,10 +51,11 @@ Below you'll find an overview of the charts and an intro to get you started.
 - [[charts/foundationdb][FoundationDB]] (=fdb-operator=): Distributed database with ACID transactions developed by Apple. 
   This buils and deploys, but I don't actively use it at the moment.
 
-- [[charts/hasura-engine][Hasura]]: Connects to databases and services to provide a realtime GraphQL API.
+- [[charts/hasura-engine][Hasura]]: Connects to databases and services to provide a realtime GraphQL API. I'm a little
+  skeptical of their licensing model, but I have tested it and it deploys well.
 
 - [[charts/netbox][Netbox]]: Modeling and docs for IP address management (IPAM) and datacenter 
-  infrastructure management (DCIM).
+  infrastructure management (DCIM). I plan to clean up this Helm, but for now it has only been imported.
 
 - [[charts/penpot][Penpot]]: Design and prototyping tool. For visual collaboration on visuals, prototypes, UX and more.
 
