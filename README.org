@@ -62,8 +62,8 @@ Below you'll find an overview of the charts and an intro to get you started.
 
 You may need the following:
 
-* S3 compatible storage
-* PostgreSQL
+- S3 compatible storage
+- PostgreSQL
 
 All tests are run on the latest version of Kubernetes and Helm and no consideration is taken to vendor-specific
 implementations.
