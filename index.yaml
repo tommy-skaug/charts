@@ -1,6 +1,50 @@
 apiVersion: v1
 entries:
+  attic-repo:
+  - apiVersion: v2
+    appVersion: bdafd64910bb2b861cf90fa15f1fc93318b6fbf6
+    created: "2023-12-25T19:24:45.946855293Z"
+    description: A Nix binary caching server
+    digest: fb4457ab7ec9c220e0e11aa9bee287dce47744b317ed62c7cf22c4488b28d224
+    keywords:
+    - kubernetes
+    - binarycache
+    - nix
+    - caching
+    - packages
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: attic-repo
+    sources:
+    - https://docs.attic.rs/
+    - https://github.com/zhaofengli/attic
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/attic-repo-0.5.1/attic-repo-0.5.1.tgz
+    version: 0.5.1
   conduit:
+  - apiVersion: v2
+    appVersion: 0.6.0
+    created: "2023-12-25T19:24:46.163454699Z"
+    description: Conduit is a simple, fast and reliable chat server powered by Matrix.
+    digest: 00b2aa4d0067a8639ef224ad3187cfa56164c444d05621b3e795485e0bb4c55a
+    keywords:
+    - kubernetes
+    - matrixorg
+    - messenger
+    - encryption
+    - selfhosted
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: conduit
+    sources:
+    - https://gitlab.com/famedly/conduit
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/conduit-0.3.0/conduit-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: 0.6.0
     created: "2023-12-16T12:44:10.201294244Z"
@@ -92,6 +136,27 @@ entries:
     - https://github.com/tommy-skaug/charts/releases/download/conduit-0.2.1/conduit-0.2.1.tgz
     version: 0.2.1
   dispatch:
+  - apiVersion: v2
+    created: "2023-12-25T19:24:46.349524437Z"
+    description: Netflix Dispatch incident management system
+    digest: 3bea98a78435a908e5f0ee9e06c500db550ac62810fab91090079e53478a5767
+    icon: https://raw.githubusercontent.com/Netflix/dispatch/master/docs/branding/website_logo_solid_background_icon_only_square.png
+    keywords:
+    - kubernetes
+    - crisis
+    - management
+    - incident
+    - coordination
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: dispatch
+    sources:
+    - https://netflix.github.io/dispatch/
+    - https://github.com/Netflix/dispatch
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.3.3/dispatch-0.3.3.tgz
+    version: 0.3.3
   - apiVersion: v2
     created: "2023-12-16T20:46:06.806238459Z"
     description: Netflix Dispatch incident management system
@@ -254,6 +319,27 @@ entries:
     version: 0.1.0
   fdb-operator:
   - apiVersion: v2
+    appVersion: 7.3.27-1
+    created: "2023-12-25T19:24:46.513844983Z"
+    description: A Helm chart for foundationDB operator
+    digest: ec2557224b4ab9bcca992165dfc58ff9bf6a393fc6c6c0c8f1b3de481d091833
+    home: https://www.foundationdb.org/
+    keywords:
+    - kubernetes
+    - apple
+    - operator
+    - database
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: fdb-operator
+    sources:
+    - https://github.com/FoundationDB/fdb-kubernetes-operator/tree/master/helm/fdb-operator
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/fdb-operator-0.2.3/fdb-operator-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
     appVersion: v1.30.0
     created: "2023-12-23T11:44:38.939495907Z"
     description: A Helm chart for foundationDB operator
@@ -343,6 +429,32 @@ entries:
     version: 3.7.8
   netbox:
   - apiVersion: v2
+    appVersion: v3.6.7
+    created: "2023-12-25T19:24:46.900472777Z"
+    description: 'An IP address management (IPAM) and data center infrastructure management
+      (DCIM) tool.  Important; With chart version 4.0.0 there are major upgrades to
+      the packaged Redis and Postgres, as well as a major version bump of Netbox that
+      introduces housekeeping. Take care when upgrading. '
+    digest: cbf67efbc370c7272bac90d10a1c781000199094b19fbd67e33a839a20954603
+    icon: https://raw.githubusercontent.com/digitalocean/netbox/develop/netbox/project-static/img/netbox.ico
+    keywords:
+    - kubernetes
+    - netbox
+    - inventory
+    - ipam
+    - dcim
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: netbox
+    sources:
+    - https://docs.netbox.dev/en/stable/
+    - https://github.com/netbox-community/netbox
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/netbox-5.5.5/netbox-5.5.5.tgz
+    version: 5.5.5
+  - apiVersion: v2
     appVersion: 3.6.3
     created: "2023-10-20T12:32:05.601732978Z"
     dependencies:
@@ -408,4 +520,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-25T19:05:36.818442989Z"
+generated: "2023-12-25T19:24:47.071860677Z"
