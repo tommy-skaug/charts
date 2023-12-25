@@ -2,11 +2,7 @@ apiVersion: v2
 name: netbox
 description: |
   An IP address management (IPAM) and data center infrastructure management (DCIM) tool.
-
-  Important; With chart version 4.0.0 there are major upgrades to the packaged Redis and Postgres,
-  as well as a major version bump of Netbox that introduces housekeeping. Take care when upgrading.
 appVersion: v3.6.7
-
 type: application
 version: 5.5.5
 maintainers:
