@@ -1,7 +1,7 @@
 envFromSecret: penpot-secret
 penpotVersion: 1.19.3
 
-publicURI: "http://localhost:8080"
+publicURL: "http://localhost:8080"
 registrationDomainWhitelist: "localhost"
 flags: "enable-registration enable-login disable-demo-users disable-demo-warning disable-secure-session-cookies"
 

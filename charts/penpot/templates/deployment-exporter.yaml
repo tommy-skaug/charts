@@ -7,35 +7,37 @@ metadata:
     {{- include "penpot.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.exporter.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "penpot.fullname" . }}-exporter
   template:
+    metadata:
+      labels:
+        app: {{ include "penpot.fullname" . }}-exporter
     spec:
       serviceAccountName: {{ include "penpot.serviceAccountName" . }}
       securityContext:
-        podSecurityContext:
-          enabled: true
-          fsGroup: 1001
+        fsGroup: 1001
 
-    readOnlyRootFilesystem: false
-    runAsNonRoot: true
       containers:
         - name: {{ .Chart.Name }}-exporter
-          image:
-            repository: "penpotapp/exporter:{{ .Values.penpotVersion.tag }}"
-            imagePullPolicy: IfNotPresent
-          containerSecurityContext:
-            enabled: true
+          image: "penpotapp/exporter:{{ .Values.penpotVersion }}"
+          imagePullPolicy: IfNotPresent
+          securityContext:
             runAsUser: 1001
             allowPrivilegeEscalation: false
             capabilities:
               drop:
               - all
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
           env:
             - name: PENPOT_PUBLIC_URI
-              value: {{ .Values.config.publicURI | quote }}
+              value: {{ .Values.publicURL | quote }}
             - name: PENPOT_FLAGS
-              value: "$PENPOT_FLAGS {{ .Values.config.flags }}"
+              value: "$PENPOT_FLAGS {{ .Values.flags }}"
             - name: PENPOT_TELEMETRY_ENABLED
-              value: false
+              value: "false"
             - name: PENPOT_REGISTRATION_DOMAIN_WHITELIST
               value: {{ .Values.registrationDomainWhitelist | quote }}
           envFrom:

@@ -86,7 +86,8 @@ So what makes this repo different from others? It is KISS and Safe of course.
 - We only support the current major version of Kubernetes and the application
 - Always enable service accounts
 - Use semver for versioning
-
+- A chart should install on a small scale with default values
+- All charts are validated for structure and syntax before compilation
 If you see a chart that does not comply with these principles, please open an issue.
 
 *** 🧑‍💻 Usage
