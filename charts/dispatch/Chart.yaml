@@ -2,3 +2,6 @@ apiVersion: v2
 name: dispatch
 description: Netflix Dispatch incident management system
 version: 0.3.2
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me

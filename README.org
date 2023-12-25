@@ -48,12 +48,46 @@ Below you'll find an overview of the charts and an intro to get you started.
 
 - [[charts/][Dispatch]]: A incident management and coordination system developed by Netflix.
 
-- [[charts/foundationdb][FoundationDB]] (=fdb-operator=): Distributed database with ACID transactions developed by Apple.
+- [[charts/foundationdb][FoundationDB]] (=fdb-operator=): Distributed database with ACID transactions developed by Apple. 
+  This buils and deploys, but I don't actively use it at the moment.
 
 - [[charts/hasura-engine][Hasura]]: Connects to databases and services to provide a realtime GraphQL API.
 
 - [[charts/netbox][Netbox]]: Modeling and docs for IP address management (IPAM) and datacenter 
   infrastructure management (DCIM).
+
+- [[charts/penpot][Penpot]]: Design and prototyping tool. For visual collaboration on visuals, prototypes, UX and more.
+
+*** Requirements
+
+You may need the following:
+
+* S3 compatible storage
+* PostgreSQL
+
+All tests are run on the latest version of Kubernetes and Helm and no consideration is taken to vendor-specific
+implementations.
+
+*** Principles
+
+So what makes this repo different from others? It is KISS and Safe of course.
+
+- All secrets and ingresses are defined in a secret external from the chart
+- We expect that an ingress terminates external connection and TLS
+- Always use object storage over block storage when possible
+- Never rely on vendor-specific components
+- We prefer open source
+- We never leave room for plaintext secrets, a sane default
+- We always leave for initContainers
+- We use as few values as possible in values.yaml
+- Always use external databases and transports
+- We always configure for OIDC when possible
+- A values file should be possible to read up on in minutes
+- We only support the current major version of Kubernetes and the application
+- Always enable service accounts
+- Use semver for versioning
+
+If you see a chart that does not comply with these principles, please open an issue.
 
 *** 🧑‍💻 Usage
 

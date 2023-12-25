@@ -1,0 +1,27 @@
+envFromSecret: penpot-secret
+penpotVersion: 1.19.3
+
+publicURI: "http://localhost:8080"
+registrationDomainWhitelist: "localhost"
+flags: "enable-registration enable-login disable-demo-users disable-demo-warning disable-secure-session-cookies"
+
+serviceAccount:
+  name: "penpot-sa"
+
+backend:
+  replicaCount: 1
+  resources:
+    limits: {}
+    requests: {}
+
+frontend:
+  replicaCount: 1
+  resources:
+    limits: {}
+    requests: {}
+
+exporter:
+  replicaCount: 1
+  resources:
+    limits: {}
+    requests: {}

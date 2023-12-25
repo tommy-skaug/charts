@@ -4,3 +4,6 @@ description: Conduit is a simple, fast and reliable chat server powered by Matri
 type: application
 version: 0.2.9
 appVersion: "0.6.0"
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me

@@ -3,3 +3,6 @@ name: hasura-engine
 description: GraphQL Engine to make data accessible over a GraphQL API
 type: application
 version: 0.1.2
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me

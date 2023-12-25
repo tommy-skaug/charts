@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "penpot.fullname" . }}-exporter
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "penpot.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.exporter.replicaCount }}
+  template:
+    spec:
+      serviceAccountName: {{ include "penpot.serviceAccountName" . }}
+      securityContext:
+        podSecurityContext:
+          enabled: true
+          fsGroup: 1001
+
+    readOnlyRootFilesystem: false
+    runAsNonRoot: true
+      containers:
+        - name: {{ .Chart.Name }}-exporter
+          image:
+            repository: "penpotapp/exporter:{{ .Values.penpotVersion.tag }}"
+            imagePullPolicy: IfNotPresent
+          containerSecurityContext:
+            enabled: true
+            runAsUser: 1001
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - all
+          env:
+            - name: PENPOT_PUBLIC_URI
+              value: {{ .Values.config.publicURI | quote }}
+            - name: PENPOT_FLAGS
+              value: "$PENPOT_FLAGS {{ .Values.config.flags }}"
+            - name: PENPOT_TELEMETRY_ENABLED
+              value: false
+            - name: PENPOT_REGISTRATION_DOMAIN_WHITELIST
+              value: {{ .Values.registrationDomainWhitelist | quote }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.envFromSecret }}
+          ports:
+            - name: http
+              containerPort: 6061
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.frontend.resources | nindent 12 }}
