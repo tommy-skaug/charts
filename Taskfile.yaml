@@ -14,6 +14,22 @@ tasks:
       helm lint $f
     end
 
+  install:
+    desc: Manual install of chart
+    cmds:
+    - helm install tmp {{ .CLI_ARGS }}
+
+  reinstall:
+    desc: Remove installed chart
+    cmds:
+    - helm uninstall tmp
+    - helm install tmp {{ .CLI_ARGS }}
+
+  remove:
+    desc: Remove installed chart
+    cmds:
+    - helm uninstall tmp
+
   default:
     silent: true
     cmds:
