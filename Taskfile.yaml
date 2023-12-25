@@ -1,4 +1,3 @@
----
 version: "3"
 
 vars:
@@ -8,14 +7,14 @@ vars:
 tasks:
   validate:
     desc: Validate charts
-  silent: False
+  silent: "False"
   cmds:
-    - |
-      for f in $(ls -d charts/* | fgrep -v '.yaml')
-        helm lint $f
-      end
+  - |
+    for f in $(ls -d charts/* | fgrep -v '.yaml')
+      helm lint $f
+    end
 
   default:
     silent: true
     cmds:
-      - task -l
+    - task -l
