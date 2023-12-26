@@ -34,8 +34,9 @@ image:
 
 postgres:
   dbInit:
-    repository: ghcr.io/onedr0p/postgres-init
-    tag: "16"
+    image:
+      repository: ghcr.io/onedr0p/postgres-init
+      tag: "16"
   hostname: "postgres-rw.databases.svc.cluster.local"
   database_name: "penpot"
   port: "5432"
