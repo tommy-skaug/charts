@@ -15,7 +15,7 @@ spec:
       labels:
         app: {{ include "penpot.fullname" . }}-exporter
     spec:
-      serviceAccountName: {{ include "penpot.serviceAccountName" . }}
+      serviceAccountName: penpot-sa
       # securityContext:
       #   fsGroup: 1001
 

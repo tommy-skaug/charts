@@ -15,7 +15,7 @@ spec:
       labels:
         app: {{ include "penpot.fullname" . }}-backend
     spec:
-      serviceAccountName: {{ include "penpot.serviceAccountName" . }}
+      serviceAccountName: penpot-sa
       # securityContext:
       #   fsGroup: 1001
 

@@ -15,7 +15,7 @@ spec:
       labels:
         app: {{ include "penpot.fullname" . }}-frontend
     spec:
-      serviceAccountName: {{ include "penpot.serviceAccountName" . }}
+      serviceAccountName: penpot-sa
       # securityContext:
       #   fsGroup: 1001
       containers:
