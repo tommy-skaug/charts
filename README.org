@@ -89,6 +89,7 @@ So what makes this repo different from others? It is KISS and Safe of course.
 - Use semver for versioning
 - Chart should install on a small scale with default values
 - Charts are validated for structure, security and syntax before compilation
+- Regardless of journey level everyone should be able to read or learn the chart
 
 Some of these principles are implicit and means you'll have to deploy with e.g. kustomize to
 get going.
@@ -135,40 +136,7 @@ spec:
   url: https://charts.252.no
 #+END_SRC
 
-You can reference e.g. the Dispatch chart like this:
-
-#+BEGIN_SRC yaml
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
-kind: HelmRelease
-metadata:
-  name: &app dispatch
-spec:
-  interval: 30m
-  chart:
-    spec:
-      chart: dispatch
-      version: 0.3.2
-      sourceRef:
-        kind: HelmRepository
-        name: 252-charts
-        namespace: flux-system
-  maxHistory: 2
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
-  uninstall:
-    keepHistory: false
-  values:
-    envFromSecret: &secret dispatch-secret
-[...]
-#+END_SRC
-
-Check out the ingress configuration in [[./docs/ingress.org][ingress.org]]
+A reference kustomization directory is shown in [./kustomization-components](./kustomization-components)
 
 ** 🤩 Licenses and Gratitude 
 
