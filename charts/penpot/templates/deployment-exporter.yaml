@@ -21,7 +21,7 @@ spec:
 
       containers:
         - name: {{ .Chart.Name }}-exporter
-          image: "penpotapp/exporter:{{ .Values.penpotVersion }}"
+          image: "{{ .Values.image.repositoryExporter }}:{{ .Values.penpotVersion }}"
           imagePullPolicy: IfNotPresent
           # securityContext:
           #   runAsUser: 1001
