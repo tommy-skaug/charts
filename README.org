@@ -136,7 +136,7 @@ spec:
   url: https://charts.252.no
 #+END_SRC
 
-A reference kustomization directory is shown in [./kustomization-components](./kustomization-components)
+A reference kustomization directory is shown in [[./kustomization-components][./kustomization-components]].
 
 ** 🤩 Licenses and Gratitude 
 
