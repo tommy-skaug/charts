@@ -507,6 +507,27 @@ entries:
   penpot:
   - apiVersion: v2
     appVersion: 1.19.3
+    created: "2023-12-26T07:14:33.475896854Z"
+    description: Penpot is a design and prototyping platform for teams and individuals.
+    digest: 04cd20aa5f7e93fe5c56cbde9996f806325685258edc2ba1c4158ecc3a68e84a
+    home: https://github.com/tommy-skaug/charts
+    icon: https://avatars.githubusercontent.com/u/30179644?s=200&v=4
+    keywords:
+    - kubernetes
+    - penpot
+    - design
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: penpot
+    sources:
+    - https://github.com/penpot/penpot
+    - https://penpot.app/
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/penpot-2.0.4/penpot-2.0.4.tgz
+    version: 2.0.4
+  - apiVersion: v2
+    appVersion: 1.19.3
     created: "2023-12-26T07:01:42.546534316Z"
     description: Penpot is a design and prototyping platform for teams and individuals.
     digest: b3171b7dbb4a41d191128363e66a93f8ef1c97c0554ce687b30772d33076f996
@@ -607,4 +628,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2023-12-26T07:01:42.546621088Z"
+generated: "2023-12-26T07:14:33.475984497Z"
