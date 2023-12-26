@@ -3,7 +3,7 @@ penpotVersion: 1.19.3
 
 publicURL: "http://localhost:8080"
 registrationDomainWhitelist: "localhost"
-flags: "enable-registration enable-login disable-demo-users disable-demo-warning disable-secure-session-cookies"
+flags: "enable-registration enable-login enable-login-with-oidc disable-demo-users disable-demo-warning disable-secure-session-cookies"
 
 serviceAccount:
   name: "penpot-sa"
