@@ -2,7 +2,7 @@ envFromSecret: dispatch-secret
 
 image:
   repository: ghcr.io/tommy-skaug/dispatch
-  tag:        v20230919
+  tag: v20230919
   pullPolicy: Always
 
 initContainers:
@@ -11,8 +11,8 @@ initContainers:
       repository: ghcr.io/onedr0p/postgres-init
       tag: "16"
     envFrom:
-      - secretRef:
-          name: dispatch-secret
+    - secretRef:
+        name: dispatch-secret
 
 url: http://localhost:80
 
@@ -35,7 +35,7 @@ scheduler:
   enabled: true
 
 postgres:
-  hostname:      "postgres-rw.databases.svc.cluster.local"
+  hostname: "postgres-rw.databases.svc.cluster.local"
   database_name: "dispatch"
-  port:          "5432"
-  secretName:    dispatch-secret
+  port: "5432"
+  secretName: dispatch-secret
