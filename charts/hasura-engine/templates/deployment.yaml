@@ -35,6 +35,8 @@ spec:
             value: "{{ .Values.features.console }}"
           - name: HASURA_GRAPHQL_DEV_MODE
             value: "{{ .Values.features.devMode }}"
+          - name: HASURA_GRAPHQL_JWT_SECRET
+            value: "{\"jwk_url\": \"{{ .Values.jwt.jwksUrl }}\"}"
         envFrom:
           - secretRef:
               name: {{ .Values.envFromSecret }}
