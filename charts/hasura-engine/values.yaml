@@ -9,8 +9,8 @@ initContainers:
       repository: ghcr.io/onedr0p/postgres-init
       tag: "16"
     envFrom:
-      - secretRef:
-          name: dispatch-secret
+    - secretRef:
+        name: dispatch-secret
 
 replicas: "1"
 
@@ -22,12 +22,12 @@ features:
   devMode: true
   console: true
 
-corsDomains:   "*"
+corsDomains: "*"
 
 envFromSecret: hasura-secret
 admin:
-  secretKey:  HASURA_GRAPHQL_ADMIN_SECRET
+  secretKey: HASURA_GRAPHQL_ADMIN_SECRET
 jwt:
-  secretKey:  HASURA_GRAPHQL_JWT_SECRET
+  jwksUrl: HASURA_GRAPHQL_JWT_SECRET
 postgres:
-  secretKey:  HASURA_GRAPHQL_DATABASE_URL
+  secretKey: HASURA_GRAPHQL_DATABASE_URL
