@@ -1,6 +1,6 @@
 image:
   repository: foundationdb/fdb-kubernetes-operator
-  tag: v1.30.0
+  tag: v1.31.0
   pullPolicy: IfNotPresent
 initContainers:
   "7.1":
