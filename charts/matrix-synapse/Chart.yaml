@@ -1,0 +1,11 @@
+apiVersion: v2
+name: matrix-synapse
+description: Matrix homeserver
+icon: https://matrix.org/images/matrix-logo.svg
+appVersion: 1.99.0
+
+type: application
+version: 4.0.0
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me
