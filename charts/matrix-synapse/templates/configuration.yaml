@@ -128,15 +128,6 @@ data:
     enable_registration: {{ .Values.config.enableRegistration | default false }}
     registration_requires_token: {{ .Values.config.enableRegistration | default false }}
 
-    {{- if .Values.config.oidcProviders }}
-    oidc_providers:
-    {{- range .Values.config.oidcProviders }}
-      - {{- range $key, $value := . }}
-        {{ $key }}: {{ $value | toYaml | nindent 10 }}
-        {{- end }}
-    {{- end }}
-    {{- end }}
-
     ## Metrics ##
 
     enable_metrics: true
