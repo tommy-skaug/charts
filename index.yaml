@@ -478,6 +478,20 @@ entries:
   matrix-synapse:
   - apiVersion: v2
     appVersion: 1.99.0
+    created: "2024-01-18T09:25:49.134494931Z"
+    description: Matrix homeserver
+    digest: 4c8aedf6e4e32d5ea0922ad27d7c88c9f3b71dd401de8c47fe28d1d7fe6b29a3
+    icon: https://matrix.org/images/matrix-logo.svg
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: matrix-synapse
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/matrix-synapse-4.0.4/matrix-synapse-4.0.4.tgz
+    version: 4.0.4
+  - apiVersion: v2
+    appVersion: 1.99.0
     created: "2024-01-17T18:37:50.137456703Z"
     description: Matrix homeserver
     digest: 12fd4af6df978e24c0c9a5b4cb65910211fb51edd989f52bdfb761ed3e6d5dce
@@ -725,4 +739,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2024-01-17T18:37:50.137550208Z"
+generated: "2024-01-18T09:25:49.134593976Z"
