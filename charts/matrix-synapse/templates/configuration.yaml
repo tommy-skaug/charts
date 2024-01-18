@@ -132,15 +132,7 @@ data:
     oidc_providers:
     {{- range .Values.config.oidcProviders }}
       - {{- range $key, $value := . }}
-        {{- if eq $key "clientSecretKeyRef" }}
-        client_secret:
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.existingSecrets }}
-              key: "$value"
-        {{- else }}
         {{ $key }}: {{ $value | toYaml | nindent 6 }}
-        {{- end }}
         {{- end }}
     {{- end }}
     {{- end }}
