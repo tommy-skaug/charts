@@ -132,7 +132,7 @@ data:
     oidc_providers:
     {{- range .Values.config.oidcProviders }}
       - {{- range $key, $value := . }}
-        {{ $key }}: {{ $value | toYaml | nindent 6 }}
+        {{ $key }}: {{ $value | toYaml | nindent 10 }}
         {{- end }}
     {{- end }}
     {{- end }}
