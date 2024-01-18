@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "matrix-synapse.fullname" . }}-db-init
+  labels:
+    {{- include "matrix-synapse.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: general-db-init
+          image: "{{ .Values.initContainers.dbInit.image.repository }}:{{ .Values.initContainers.dbInit.image.tag }}"
+          envFrom:
+            - secretRef:
+                name: {{ .Values.externalPostgresql.existingSecret }}
+  backoffLimit: 3

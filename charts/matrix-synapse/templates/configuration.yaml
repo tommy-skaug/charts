@@ -125,6 +125,7 @@ data:
     ## Registration ##
 
     enable_registration: {{ .Values.config.enableRegistration | default false }}
+    registration_requires_token: {{ .Values.config.enableRegistration | default false }}
 
     ## Metrics ###
 
@@ -136,6 +137,7 @@ data:
 
     # The trusted servers to download signing keys from.
     trusted_key_servers: {{- .Values.config.trustedKeyServers | toYaml | nindent 6 }}
+    suppress_key_server_warning: true
 
     ## Workers ##
     {{- $default := .Values.workers.default }}
@@ -144,7 +146,7 @@ data:
         {{- if or (eq $worker "pusher") (eq ($config.app | default "") "pusher") }}
 
     # For pusher worker
-    start_pushers: false
+    start_pushers: true
         {{- else if or (eq $worker "appservice") (eq ($config.app | default "") "appservice") }}
 
     # For appservice worker

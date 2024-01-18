@@ -25,7 +25,6 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
         {{- with .Values.synapse.annotations }}
         {{ . | toYaml | nindent 8 }}
         {{- end }}
@@ -158,12 +157,12 @@ spec:
             name: {{ include "matrix-synapse.fullname" . }}
         - name: secrets
           secret:
-            secretName: {{ include "matrix-synapse.fullname" . }}
+            secretName: {{ $.Values.existingSecrets }}
         - name: signingkey
           secret:
-            secretName: {{ .Values.signingkey.existingSecret | default (include "matrix-synapse.workername" (dict "global" . "worker" "signingkey")) | quote }}
+            secretName: {{ $.Values.signingkey.existingSecret | quote }}
             items:
-              - key: {{ .Values.signingkey.existingSecretKey | default "signing.key" | quote }}
+              - key: {{ $.Values.signingkey.existingSecretKey | default "signing.key" | quote }}
                 path: signing.key
         - name: tmpconf
           emptyDir: {}

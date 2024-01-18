@@ -27,7 +27,6 @@ spec:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") $ | sha256sum }}
         checksum/worker-config: {{ include (print $.Template.BasePath "/worker-configuration.yaml") $ | sha256sum }}
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") $ | sha256sum }}
       {{- with ($config.annotations | default $default.annotations) }}
         {{ . | toYaml | nindent 8 }}
       {{- end }}
@@ -160,6 +159,7 @@ spec:
               mountPath: /synapse/secrets
             - name: signingkey
               mountPath: /synapse/keys
+              readOnly: false
           {{- if eq $name "media-repository" }}
             - name: media
               mountPath: /synapse/data
@@ -188,10 +188,10 @@ spec:
             name: {{ include "matrix-synapse.workername" (dict "global" $ "worker" "workers") }}
         - name: secrets
           secret:
-            secretName: {{ include "matrix-synapse.fullname" $ }}
+            secretName: {{ $.Values.existingSecrets }}
         - name: signingkey
           secret:
-            secretName: {{ $.Values.signingkey.existingSecret | default (include "matrix-synapse.workername" (dict "global" $ "worker" "signingkey")) | quote }}
+            secretName: {{ $.Values.signingkey.existingSecret | quote }}
             items:
               - key: {{ $.Values.signingkey.existingSecretKey | default "signing.key" | quote }}
                 path: signing.key
