@@ -1,0 +1,63 @@
+homeserver: "https://synapse.example.com"
+serverAddress: "https://slidingsync.example.com"
+existingSecret: "slidingsync-secret"
+
+initContainers:
+  dbInit:
+    image:
+      repository: ghcr.io/onedr0p/postgres-init
+      tag: "16"
+    envFrom:
+    - secretRef:
+        name: slidingsync-secret
+
+image:
+  repository: ghcr.io/matrix-org/sliding-sync
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+replicaCount: 1
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
