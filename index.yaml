@@ -764,6 +764,29 @@ entries:
     version: 2.0.0
   sliding-sync-proxy:
   - apiVersion: v2
+    appVersion: 0.99.14
+    created: "2024-01-19T17:12:51.920432302Z"
+    description: A proxy for modern Matrix messaging clients
+    digest: 5df910a4ae598ce5887a9612194ac102e6f67c4507c7c543eb83e3ca8c3ebb42
+    icon: https://avatars.githubusercontent.com/u/8418310?s=200&v=4
+    keywords:
+    - messaging
+    - encrypted
+    - matrix
+    - proxy
+    - slidingsync
+    - syncv3
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: sliding-sync-proxy
+    sources:
+    - https://github.com/matrix-org/sliding-sync
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-1.0.0/sliding-sync-proxy-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
     appVersion: 0.99.11
     created: "2023-10-20T12:32:05.838413113Z"
     dependencies:
@@ -781,4 +804,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2024-01-18T15:58:11.275343588Z"
+generated: "2024-01-19T17:12:51.92057585Z"
