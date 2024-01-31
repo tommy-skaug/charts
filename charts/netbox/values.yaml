@@ -1,12 +1,8 @@
-# Default values for netbox.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
   repository: quay.io/netboxcommunity/netbox
-  # tag:
+  tag: v3.7.1
   pullPolicy: Always
 
 nameOverride: ""
@@ -16,69 +12,7 @@ service:
   type: ClusterIP
   port: 80
 
-ingress:
-  enabled: false
-  annotations: {}
-  # kubernetes.io/ingress.class: nginx
-  # kubernetes.io/tls-acme: "true"
-  host: chart-example.local
-  # Can also be specified by entering rules directly;
-  # rules:
-  #   - host: chart-example.local
-  #     paths:
-  #       - path: /
-  #         backend:
-  #           serviceName: netbox-example
-  #           servicePort: http
-
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-  ## Set the name of the IngressClass cluster resource (optional)
-  ## https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/#IngressSpec
-  # className: can-be-anything
-
-postgresql:
-  enabled: true
-
-  auth:
-    database: netbox
-    username: netbox
-    # password: postgres
-    ## When defined the `password` field is ignored
-    ## Refer to https://github.com/bitnami/charts/blob/d839514d4ea3072a816097493e74cf583d40e3cb/bitnami/postgresql/values.yaml#L143
-    # existingSecret: secret-name
-
-  # The following variables are only used when internal PG is disabled
-  # postgresqlHost: postgres
-  # postgresqlPort: 5432
-
-# For standalone redis, set enabled=false and host to your redis server
-redis:
-  enabled: true
-  # host: example.com
-
-  architecture: standalone
-  auth:
-    enabled: true
-    # password: netbox
-    # existingSecret:
-    # existingSecretPasswordKey:
-
-  master:
-    kind: Deployment
-    persistence:
-      enabled: false
-    service:
-      port: 6379
-
-# NB; Not specifying a key or existing secret will cause it to regenerate on
-# every upgrade
-# djangoSecret: ''
-# existingDjangoSecret: netbox-django-secret
-# existingDjangoSecretKey: secret_key
+existingSecret: netbox-secret
 
 extraEnv: {}
 # EMAIL_SERVER: localhost
@@ -114,12 +48,6 @@ extraPlugins: ''
 #     ADD YOUR SETTINGS HERE
 #   }
 # }
-
-superuser:
-  name: ''
-  email: ''
-  apiToken: ''
-  password: ''
 
 resources: {}
 # limits:

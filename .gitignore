@@ -2,3 +2,4 @@
 charts/*/charts/*.tgz
 charts/*/Chart.lock
 *.DS_Store
+testing
