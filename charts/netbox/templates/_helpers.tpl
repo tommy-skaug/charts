@@ -37,3 +37,15 @@ Get the correct image tag name
 {{- define "netbox.imageTag" -}}
 {{- .Values.image.tag | default (printf "v%s" .Chart.AppVersion) -}}
 {{- end -}}
+
+{{/*
+Common labels
+*/}}
+{{- define "netbox.labels" -}}
+helm.sh/chart: {{ include "netbox.chart" . }}
+{{ include "netbox.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
