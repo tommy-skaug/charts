@@ -585,6 +585,30 @@ entries:
     version: 3.7.8
   netbox:
   - apiVersion: v2
+    appVersion: v3.7.1
+    created: "2024-01-31T15:22:50.759242125Z"
+    description: 'An IP address management (IPAM) and data center infrastructure management
+      (DCIM) tool. '
+    digest: d568b037afa1a7d828df83c8f5bdfebc8a9cf9a80a7773075f7e259ac4f5a2a2
+    icon: https://raw.githubusercontent.com/digitalocean/netbox/develop/netbox/project-static/img/netbox.ico
+    keywords:
+    - kubernetes
+    - netbox
+    - inventory
+    - ipam
+    - dcim
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: netbox
+    sources:
+    - https://docs.netbox.dev/en/stable/
+    - https://github.com/netbox-community/netbox
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/netbox-6.0.0/netbox-6.0.0.tgz
+    version: 6.0.0
+  - apiVersion: v2
     appVersion: v3.6.7
     created: "2023-12-25T19:24:46.900472777Z"
     description: 'An IP address management (IPAM) and data center infrastructure management
@@ -804,4 +828,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2024-01-19T17:12:51.92057585Z"
+generated: "2024-01-31T15:22:50.759375405Z"
