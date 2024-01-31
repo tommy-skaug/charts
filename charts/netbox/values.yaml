@@ -1,5 +1,14 @@
 replicaCount: 1
 
+initContainers:
+  dbInit:
+    image:
+      repository: ghcr.io/onedr0p/postgres-init
+      tag: "16"
+    envFrom:
+    - secretRef:
+        name: netbox-secret
+
 image:
   repository: quay.io/netboxcommunity/netbox
   tag: v3.7.1
