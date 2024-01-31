@@ -2,9 +2,9 @@ apiVersion: v2
 name: netbox
 description: |
   An IP address management (IPAM) and data center infrastructure management (DCIM) tool.
-appVersion: v3.6.7
+appVersion: v3.7.1
 type: application
-version: 5.5.5
+version: 6.0.0
 maintainers:
 - name: Tommy Skaug
   email: tommy@skaug.me
