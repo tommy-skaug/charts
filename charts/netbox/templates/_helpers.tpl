@@ -39,6 +39,14 @@ Get the correct image tag name
 {{- end -}}
 
 {{/*
+Selector labels
+*/}}
+{{- define "netbox.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "netbox.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}
+
+{{/*
 Common labels
 */}}
 {{- define "netbox.labels" -}}
