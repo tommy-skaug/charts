@@ -5,10 +5,8 @@ kind: Deployment
 metadata:
   name: {{ include "netbox.fullname" . }}-housekeeping
   labels:
-    app.kubernetes.io/name: {{ include "netbox.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    helm.sh/chart: {{ include "netbox.chart" . }}
+    {{- include "netbox.labels" . | nindent 4 }}
+    app.kubernetes.io/component: housekeeping
 spec:
   replicas: 1
   selector:

@@ -20,9 +20,8 @@ spec:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        app.kubernetes.io/name: {{ include "netbox.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
-        component: app
+        {{- include "netbox.labels" . | nindent 8 }}
+        app.kubernetes.io/component: app
     spec:
       containers:
         - name: {{ .Chart.Name }}
