@@ -38,22 +38,14 @@ Get the correct image tag name
 {{- .Values.image.tag | default (printf "v%s" .Chart.AppVersion) -}}
 {{- end -}}
 
-{{/*
-Selector labels
-*/}}
-{{- define "netbox.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "netbox.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end -}}
-
+# Define a template for standard labels.
 {{/*
 Common labels
 */}}
 {{- define "netbox.labels" -}}
 helm.sh/chart: {{ include "netbox.chart" . }}
-{{ include "netbox.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
+app.kubernetes.io/name: {{ include "netbox.fullname" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/version: {{ .Chart.Version | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end -}}
+{{- end }}
