@@ -15,7 +15,7 @@ spec:
     matchLabels:
       app.kubernetes.io/name: {{ include "netbox.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
-      component: worker
+      app.kubernetes.io/component: worker
   template:
     metadata:
       annotations:
