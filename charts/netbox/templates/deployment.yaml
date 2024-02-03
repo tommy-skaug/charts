@@ -2,26 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "netbox.fullname" . }}
+  name: {{ include "netbox.fullname" . }}-app
   labels:
-    app.kubernetes.io/name: {{ include "netbox.name" . }}
-    helm.sh/chart: {{ include "netbox.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "netbox.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "netbox.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
-      app.kubernetes.io/component: app
+      app.kubernetes.io/component: {{ include "netbox.fullname" . }}-app
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        {{- include "netbox.labels" . | nindent 8 }}
-        app.kubernetes.io/component: app
+        app.kubernetes.io/component: {{ include "netbox.fullname" . }}-app
     spec:
       containers:
         - name: {{ .Chart.Name }}

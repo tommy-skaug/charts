@@ -5,24 +5,18 @@ kind: Deployment
 metadata:
   name: {{ include "netbox.fullname" . }}-worker
   labels:
-    app.kubernetes.io/name: {{ include "netbox.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    helm.sh/chart: {{ include "netbox.chart" . }}
+    {{- include "netbox.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.worker.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "netbox.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
-      app.kubernetes.io/component: worker
+      app.kubernetes.io/component: {{ include "netbox.fullname" . }}-worker
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        {{- include "netbox.labels" . | nindent 8 }}
-        app.kubernetes.io/component: worker
+        app.kubernetes.io/component: {{ include "netbox.fullname" . }}-worker
     spec:
       containers:
         - name: {{ .Chart.Name }}-worker
