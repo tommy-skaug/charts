@@ -9,13 +9,13 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/component: {{ include "netbox.fullname" . }}-app
+      app: {{ include "netbox.fullname" . }}-app
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        app.kubernetes.io/component: {{ include "netbox.fullname" . }}-app
+        app: {{ include "netbox.fullname" . }}-app
     spec:
       containers:
         - name: {{ .Chart.Name }}

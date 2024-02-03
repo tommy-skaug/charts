@@ -4,7 +4,7 @@ description: |
   An IP address management (IPAM) and data center infrastructure management (DCIM) tool.
 appVersion: v3.7.1
 type: application
-version: 6.0.6
+version: 6.0.7
 maintainers:
 - name: Tommy Skaug
   email: tommy@skaug.me

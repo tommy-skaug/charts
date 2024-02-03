@@ -10,13 +10,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/component: {{ include "netbox.fullname" . }}-housekeeping
+      app: {{ include "netbox.fullname" . }}-housekeeping
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        app.kubernetes.io/component: {{ include "netbox.fullname" . }}-housekeeping
+        app: {{ include "netbox.fullname" . }}-housekeeping
     spec:
       containers:
         - name: {{ .Chart.Name }}-housekeeping

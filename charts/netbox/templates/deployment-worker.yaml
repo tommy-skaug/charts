@@ -10,13 +10,13 @@ spec:
   replicas: {{ .Values.worker.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/component: {{ include "netbox.fullname" . }}-worker
+      app: {{ include "netbox.fullname" . }}-worker
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configuration.yaml") . | sha256sum }}
       labels:
-        app.kubernetes.io/component: {{ include "netbox.fullname" . }}-worker
+        app: {{ include "netbox.fullname" . }}-worker
     spec:
       containers:
         - name: {{ .Chart.Name }}-worker
