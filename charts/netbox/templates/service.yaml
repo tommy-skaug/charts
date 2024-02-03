@@ -3,10 +3,7 @@ kind: Service
 metadata:
   name: {{ include "netbox.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "netbox.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    helm.sh/chart: {{ include "netbox.chart" . }}
+    {{- include "netbox.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -15,6 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "netbox.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    component: app
+    app: {{ include "netbox.fullname" . }}-app
