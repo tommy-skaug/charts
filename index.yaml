@@ -876,6 +876,26 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/netbox-5.5.3/netbox-5.5.3.tgz
     version: 5.5.3
+  ollama-web:
+  - apiVersion: v2
+    appVersion: main
+    created: "2024-02-07T18:38:13.346178552Z"
+    description: "ChatGPT-Style Web UI Client for Ollama \U0001F999"
+    digest: 94eb8253b3f1f2f1adc2925546ec53f0bd62e256efa2787ead114da3091f4c97
+    icon: https://avatars.githubusercontent.com/u/147204191?s=200&v=4
+    keywords:
+    - llm
+    - llama
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: ollama-web
+    sources:
+    - https://ollama.ai
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/ollama-web-0.1.0/ollama-web-0.1.0.tgz
+    version: 0.1.0
   penpot:
   - apiVersion: v2
     appVersion: 1.19.3
@@ -1044,4 +1064,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2024-02-03T14:53:15.834501926Z"
+generated: "2024-02-07T18:38:13.346316809Z"
