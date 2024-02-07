@@ -1,0 +1,15 @@
+apiVersion: v2
+name: ollama-web
+description: ChatGPT-Style Web UI Client for Ollama 🦙
+type: application
+version: 0.1.0
+appVersion: "main"
+icon: https://avatars.githubusercontent.com/u/147204191?s=200&v=4
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me
+keywords:
+- llm
+- llama
+sources:
+- https://ollama.ai

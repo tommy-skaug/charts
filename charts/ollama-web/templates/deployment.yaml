@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ollama.fullname" . }}
+  labels:
+    {{- include "ollama.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "ollama.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "ollama.fullname" . }}
+    spec:
+      containers:
+      - name: {{ include "ollama.fullname" . }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 8080
+        {{- if .Values.resources }}
+        resources: {{- toYaml .Values.resources | nindent 10 }}
+        {{- end }}
+        volumeMounts:
+        - name: web-volume
+          mountPath: /app/backend/data
+        env:
+        - name: OLLAMA_API_BASE_URL
+          value: {{ .Values.apiUrl }}
+        tty: true
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      - name: web-volume
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim }}
