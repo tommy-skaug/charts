@@ -11,7 +11,7 @@ initContainers:
 
 image:
   repository: quay.io/netboxcommunity/netbox
-  tag: v3.7.2
+  tag: v3.7.3
   pullPolicy: Always
 
 nameOverride: ""
