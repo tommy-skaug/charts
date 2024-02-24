@@ -1,0 +1,11 @@
+apiVersion: v2
+name: element-call
+description: Matrix video conference and call server
+icon: https://avatars.githubusercontent.com/u/13446337?s=48&v=4
+appVersion: v0.5.15
+
+type: application
+version: 0.1.8
+maintainers:
+- name: Tommy Skaug
+  email: tommy@skaug.me
