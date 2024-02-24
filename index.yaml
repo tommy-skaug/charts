@@ -317,6 +317,21 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/dispatch-0.1.0/dispatch-0.1.0.tgz
     version: 0.1.0
+  element-call:
+  - apiVersion: v2
+    appVersion: v0.5.15
+    created: "2024-02-24T19:48:01.023174883Z"
+    description: Matrix video conference and call server
+    digest: cddb2643af320e3150e891d69c765144fb9af409bf12690fa6c628b9696f7cf5
+    icon: https://avatars.githubusercontent.com/u/13446337?s=48&v=4
+    maintainers:
+    - email: tommy@skaug.me
+      name: Tommy Skaug
+    name: element-call
+    type: application
+    urls:
+    - https://github.com/tommy-skaug/charts/releases/download/element-call-0.1.8/element-call-0.1.8.tgz
+    version: 0.1.8
   excalidraw:
   - apiVersion: v2
     appVersion: 0.17.0
@@ -1087,4 +1102,4 @@ entries:
     urls:
     - https://github.com/tommy-skaug/charts/releases/download/sliding-sync-proxy-0.2.5/sliding-sync-proxy-0.2.5.tgz
     version: 0.2.5
-generated: "2024-02-11T19:28:35.693592097Z"
+generated: "2024-02-24T19:48:01.222171873Z"
